@@ -1,6 +1,17 @@
 {
   "name": "@liko-ui/astro",
   "version": "0.0.1",
+  "description": "UI component library with Astro, for Astro.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JCTechStudio/liko.git",
+    "directory": "packages/astro"
+  },
+  "author": {
+    "name": "JCTechStudio",
+    "url": "https://github.com/JCTechStudio"
+  },
+  "homepage": "https://github.com/JCTechStudio/liko",
   "type": "module",
   "exports": {
     ".": "./index.ts"
@@ -10,8 +21,18 @@
     "index.ts"
   ],
   "keywords": [
-    "astro-component"
+    "astro-component",
+    "astro-integration",
+    "withastro",
+    "liko",
+    "ui"
   ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "clean": "rimraf dist",
     "build": "pnpm clean && node scripts/build.mjs"
