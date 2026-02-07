@@ -1,0 +1,27 @@
+---
+import { button, type ButtonVariants } from "./button.css";
+import { paletteClass, type Palette } from "../../theme/palette.css";
+import type { HTMLAttributes } from "astro/types";
+
+export type ButtonProps = ButtonVariants & HTMLAttributes<"button"> & {
+  palette?: Palette;
+}
+
+const {
+  shape,
+  fill,
+  size,
+  block,
+  palette = "amber",
+  class: className,
+  ...rest
+}: ButtonProps = Astro.props;
+---
+
+<button class={[
+  button({ shape, fill, size, block }),
+  paletteClass[palette],
+  className,
+].filter(Boolean).join(" ")} {...rest}>
+  <slot />
+</button>
