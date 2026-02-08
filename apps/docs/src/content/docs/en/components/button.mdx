@@ -232,3 +232,60 @@ import CodePreview from "../../../../components/CodePreview.astro";
     ```
   </TabItem>
 </Tabs>
+
+### Loading
+
+<Tabs>
+  <TabItem label="Preview">
+    <CodePreview>
+      <Button loading>Button</Button>
+      <Button loading loadingText="Loading...">Button</Button>
+      <Button loading loadingSpinner="{}">Button</Button>
+      <Button loading spinnerPlacement="end">Button</Button>
+    </CodePreview>
+  </TabItem>
+  <TabItem label="Code">
+    ```astro showLineNumbers
+    ---
+    import { Button } from '@kori/ui';
+    ---
+
+    <Button loading>
+      Button
+    </Button>
+
+    <Button loading loadingText="Loading...">
+      Button
+    </Button>
+
+    <Button loading loadingSpinner="{}">
+      Button
+    </Button>
+
+    <Button loading spinnerPlacement="end">
+      Button
+    </Button>
+    ```
+  </TabItem>
+</Tabs>
+
+### As
+
+<Tabs>
+  <TabItem label="Preview">
+    <CodePreview>
+      <Button as="div">Button</Button>
+    </CodePreview>
+  </TabItem>
+  <TabItem label="Code">
+    ```astro showLineNumbers
+    ---
+    import { Button } from '@kori/ui';
+    ---
+
+    <Button as="div">
+      Button
+    </Button>
+    ```
+  </TabItem>
+</Tabs>
