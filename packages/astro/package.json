@@ -23,14 +23,14 @@
     "astro-component",
     "astro-integration",
     "withastro",
-    "liko",
-    "ui"
+    "liko-ui"
   ],
   "sideEffects": [
     "**/*.css"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "dist"
   },
   "scripts": {
     "clean": "rimraf dist",
