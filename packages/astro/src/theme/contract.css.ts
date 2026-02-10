@@ -1,6 +1,6 @@
 import { createThemeContract } from "@vanilla-extract/css";
 
-export const theme = createThemeContract({
+export const vars = createThemeContract({
   ui: {
     bg: null,
     bgSubtle: null,

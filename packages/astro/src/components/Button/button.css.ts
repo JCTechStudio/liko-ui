@@ -1,6 +1,6 @@
 import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
 import { style, styleVariants } from "@vanilla-extract/css";
-import { theme } from "../../theme/contract.css.ts";
+import { vars } from "../../theme/contract.css.ts";
 
 const base = style({
   position: "relative",
@@ -32,55 +32,55 @@ const shape = styleVariants({
 
 const fill = styleVariants({
   solid: {
-    backgroundColor: theme.palette.solid,
-    color: theme.palette.contrast,
+    backgroundColor: vars.palette.solid,
+    color: vars.palette.contrast,
     selectors: {
       "&:not(:disabled):hover, &:not(:disabled)[aria-expanded='true']": {
-        backgroundColor: `color-mix(in srgb, ${theme.palette.solid} 90%, transparent)`,
+        backgroundColor: `color-mix(in srgb, ${vars.palette.solid} 90%, transparent)`,
       },
     },
   },
   tonal: {
-    backgroundColor: theme.palette.subtle,
-    color: theme.palette.fg,
+    backgroundColor: vars.palette.subtle,
+    color: vars.palette.fg,
     selectors: {
       "&:not(:disabled):hover, &:not(:disabled)[aria-expanded='true']": {
-        backgroundColor: theme.palette.muted,
+        backgroundColor: vars.palette.muted,
       },
     },
   },
   surface: {
-    backgroundColor: theme.palette.subtle,
-    color: theme.palette.fg,
-    boxShadow: `0 0 0 1px ${theme.palette.muted}`,
+    backgroundColor: vars.palette.subtle,
+    color: vars.palette.fg,
+    boxShadow: `0 0 0 1px ${vars.palette.muted}`,
     selectors: {
       "&:not(:disabled):hover, &:not(:disabled)[aria-expanded='true']": {
-        backgroundColor: theme.palette.muted,
+        backgroundColor: vars.palette.muted,
       },
     },
   },
   outline: {
-    borderColor: theme.palette.muted,
+    borderColor: vars.palette.muted,
     backgroundColor: "transparent",
-    color: theme.palette.fg,
+    color: vars.palette.fg,
     selectors: {
       "&:not(:disabled):hover, &:not(:disabled)[aria-expanded='true']": {
-        backgroundColor: theme.palette.subtle,
+        backgroundColor: vars.palette.subtle,
       },
     },
   },
   clear: {
     backgroundColor: "transparent",
-    color: theme.palette.fg,
+    color: vars.palette.fg,
     selectors: {
       "&:not(:disabled):hover, &:not(:disabled)[aria-expanded='true']": {
-        backgroundColor: theme.palette.subtle,
+        backgroundColor: vars.palette.subtle,
       },
     },
   },
   text: {
     backgroundColor: "transparent",
-    color: theme.palette.fg,
+    color: vars.palette.fg,
   },
 });
 

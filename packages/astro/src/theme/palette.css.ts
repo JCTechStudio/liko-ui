@@ -1,6 +1,6 @@
 import { assignVars, style } from "@vanilla-extract/css";
 import colors from "tailwindcss/colors";
-import { theme } from "./contract.css";
+import { vars } from "./contract.css";
 
 type Theme = "light" | "dark";
 
@@ -149,9 +149,9 @@ function makePaletteClass(name: PaletteName) {
   const darkVars = getThemePaletteVars("dark", scale, spec);
 
   return style({
-    vars: assignVars(theme.palette, lightVars), selectors: {
+    vars: assignVars(vars.palette, lightVars), selectors: {
       [DARK_SELECTOR]: {
-        vars: assignVars(theme.palette, darkVars),
+        vars: assignVars(vars.palette, darkVars),
       },
     },
   });

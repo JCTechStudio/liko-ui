@@ -1,8 +1,8 @@
 import { createGlobalTheme } from "@vanilla-extract/css";
 import colors from "tailwindcss/colors";
-import { theme } from "./contract.css";
+import { vars } from "./contract.css";
 
-createGlobalTheme(":root", theme, {
+createGlobalTheme(":root", vars, {
   ui: {
     bg: colors.white,
     bgSubtle: colors.gray[50],
@@ -61,7 +61,7 @@ createGlobalTheme(":root", theme, {
   },
 });
 
-createGlobalTheme("[data-theme='dark']", theme, {
+createGlobalTheme("[data-theme='dark']", vars, {
   ui: {
     bg: colors.black,
     bgSubtle: colors.gray[950],
