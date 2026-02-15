@@ -1,6 +1,6 @@
 ---
 import { button } from "./button.css";
-import { paletteClass } from "../../theme/palette.css";
+import { paletteClasses } from "../../theme/palette.css";
 import type { ButtonProps } from "./Button.types.ts";
 
 const {
@@ -23,7 +23,7 @@ const {
 
 <Tag class:list={[
   button({ shape, fill, size, block }),
-  paletteClass[palette],
+  paletteClasses[palette],
   className,
 ]} {type} data-loading={loading} disabled={disabled || loading} {...props}>
   {loading ?

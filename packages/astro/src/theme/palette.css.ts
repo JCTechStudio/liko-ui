@@ -143,10 +143,10 @@ function getThemePaletteVars(theme: Theme, scale: Scale, semantic: ThemePaletteS
 
 function makePaletteClass(name: PaletteName) {
   const scale: Scale = (colors as any)[name];
-  const spec = PALETTE_SEMANTICS[name];
+  const semantic = PALETTE_SEMANTICS[name];
 
-  const lightVars = getThemePaletteVars("light", scale, spec);
-  const darkVars = getThemePaletteVars("dark", scale, spec);
+  const lightVars = getThemePaletteVars("light", scale, semantic);
+  const darkVars = getThemePaletteVars("dark", scale, semantic);
 
   return style({
     vars: assignVars(vars.palette, lightVars), selectors: {
@@ -157,29 +157,16 @@ function makePaletteClass(name: PaletteName) {
   });
 }
 
-export const paletteClass = {
-  red: makePaletteClass("red"),
-  orange: makePaletteClass("orange"),
-  amber: makePaletteClass("amber"),
-  yellow: makePaletteClass("yellow"),
-  lime: makePaletteClass("lime"),
-  green: makePaletteClass("green"),
-  emerald: makePaletteClass("emerald"),
-  teal: makePaletteClass("teal"),
-  cyan: makePaletteClass("cyan"),
-  sky: makePaletteClass("sky"),
-  blue: makePaletteClass("blue"),
-  indigo: makePaletteClass("indigo"),
-  violet: makePaletteClass("violet"),
-  purple: makePaletteClass("purple"),
-  fuchsia: makePaletteClass("fuchsia"),
-  pink: makePaletteClass("pink"),
-  rose: makePaletteClass("rose"),
-  slate: makePaletteClass("slate"),
-  gray: makePaletteClass("gray"),
-  zinc: makePaletteClass("zinc"),
-  neutral: makePaletteClass("neutral"),
-  stone: makePaletteClass("stone"),
-} as const;
+function makePaletteClasses() {
+  const classes = {} as Record<PaletteName, string>;
 
-export type Palette = keyof typeof paletteClass;
+  for (const name in PALETTE_SEMANTICS) {
+    classes[name as PaletteName] = makePaletteClass(name as PaletteName);
+  }
+
+  return classes;
+}
+
+export const paletteClasses = makePaletteClasses();
+
+export type Palette = keyof typeof paletteClasses;
