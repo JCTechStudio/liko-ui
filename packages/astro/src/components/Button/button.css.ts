@@ -1,6 +1,6 @@
 import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
 import { style, styleVariants } from "@vanilla-extract/css";
-import { vars } from "../../theme/contract.css.ts";
+import { semanticColors } from "../../theme/semantic-colors/semantic-colors.contract.css.ts";
 
 const base = style({
   position: "relative",
@@ -32,55 +32,55 @@ const shape = styleVariants({
 
 const fill = styleVariants({
   solid: {
-    backgroundColor: vars.palette.solid,
-    color: vars.palette.contrast,
+    backgroundColor: semanticColors.palette.solid,
+    color: semanticColors.palette.contrast,
     selectors: {
       "&:not(:disabled):hover, &:not(:disabled)[aria-expanded='true']": {
-        backgroundColor: `color-mix(in srgb, ${vars.palette.solid} 90%, transparent)`,
+        backgroundColor: `color-mix(in srgb, ${semanticColors.palette.solid} 90%, transparent)`,
       },
     },
   },
   tonal: {
-    backgroundColor: vars.palette.subtle,
-    color: vars.palette.fg,
+    backgroundColor: semanticColors.palette.subtle,
+    color: semanticColors.palette.fg,
     selectors: {
       "&:not(:disabled):hover, &:not(:disabled)[aria-expanded='true']": {
-        backgroundColor: vars.palette.muted,
+        backgroundColor: semanticColors.palette.muted,
       },
     },
   },
   surface: {
-    backgroundColor: vars.palette.subtle,
-    color: vars.palette.fg,
-    boxShadow: `0 0 0 1px ${vars.palette.muted}`,
+    backgroundColor: semanticColors.palette.subtle,
+    color: semanticColors.palette.fg,
+    boxShadow: `0 0 0 1px ${semanticColors.palette.muted}`,
     selectors: {
       "&:not(:disabled):hover, &:not(:disabled)[aria-expanded='true']": {
-        backgroundColor: vars.palette.muted,
+        backgroundColor: semanticColors.palette.muted,
       },
     },
   },
   outline: {
-    borderColor: vars.palette.muted,
+    borderColor: semanticColors.palette.muted,
     backgroundColor: "transparent",
-    color: vars.palette.fg,
+    color: semanticColors.palette.fg,
     selectors: {
       "&:not(:disabled):hover, &:not(:disabled)[aria-expanded='true']": {
-        backgroundColor: vars.palette.subtle,
+        backgroundColor: semanticColors.palette.subtle,
       },
     },
   },
   clear: {
     backgroundColor: "transparent",
-    color: vars.palette.fg,
+    color: semanticColors.palette.fg,
     selectors: {
       "&:not(:disabled):hover, &:not(:disabled)[aria-expanded='true']": {
-        backgroundColor: vars.palette.subtle,
+        backgroundColor: semanticColors.palette.subtle,
       },
     },
   },
   text: {
     backgroundColor: "transparent",
-    color: vars.palette.fg,
+    color: semanticColors.palette.fg,
   },
 });
 
