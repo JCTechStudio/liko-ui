@@ -27,11 +27,11 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   orange: {
     light: {
       contrast: colors.white,
-      fg: colors.orange["800"],
+      fg: colors.orange["700"],
       subtle: colors.orange["100"],
       muted: colors.orange["200"],
       emphasized: colors.orange["300"],
-      solid: colors.orange["600"],
+      solid: colors.orange["500"],
       focusRing: colors.orange["500"],
       border: colors.orange["500"],
     },
@@ -49,7 +49,7 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   amber: {
     light: {
       contrast: colors.black,
-      fg: colors.amber["800"],
+      fg: colors.amber["700"],
       subtle: colors.amber["100"],
       muted: colors.amber["200"],
       emphasized: colors.amber["300"],
@@ -71,7 +71,7 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   yellow: {
     light: {
       contrast: colors.black,
-      fg: colors.yellow["800"],
+      fg: colors.yellow["700"],
       subtle: colors.yellow["100"],
       muted: colors.yellow["200"],
       emphasized: colors.yellow["300"],
@@ -93,11 +93,11 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   lime: {
     light: {
       contrast: colors.black,
-      fg: colors.lime["800"],
+      fg: colors.lime["700"],
       subtle: colors.lime["100"],
       muted: colors.lime["200"],
       emphasized: colors.lime["300"],
-      solid: colors.lime["400"],
+      solid: colors.lime["500"],
       focusRing: colors.lime["500"],
       border: colors.lime["500"],
     },
@@ -115,7 +115,7 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   green: {
     light: {
       contrast: colors.white,
-      fg: colors.green["800"],
+      fg: colors.green["700"],
       subtle: colors.green["100"],
       muted: colors.green["200"],
       emphasized: colors.green["300"],
@@ -137,7 +137,7 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   emerald: {
     light: {
       contrast: colors.white,
-      fg: colors.emerald["800"],
+      fg: colors.emerald["700"],
       subtle: colors.emerald["100"],
       muted: colors.emerald["200"],
       emphasized: colors.emerald["300"],
@@ -159,7 +159,7 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   teal: {
     light: {
       contrast: colors.white,
-      fg: colors.teal["800"],
+      fg: colors.teal["700"],
       subtle: colors.teal["100"],
       muted: colors.teal["200"],
       emphasized: colors.teal["300"],
@@ -180,12 +180,12 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   },
   cyan: {
     light: {
-      contrast: colors.black,
-      fg: colors.cyan["800"],
+      contrast: colors.white,
+      fg: colors.cyan["700"],
       subtle: colors.cyan["100"],
       muted: colors.cyan["200"],
       emphasized: colors.cyan["300"],
-      solid: colors.cyan["400"],
+      solid: colors.cyan["600"],
       focusRing: colors.cyan["500"],
       border: colors.cyan["500"],
     },
@@ -203,7 +203,7 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   sky: {
     light: {
       contrast: colors.white,
-      fg: colors.sky["800"],
+      fg: colors.sky["700"],
       subtle: colors.sky["100"],
       muted: colors.sky["200"],
       emphasized: colors.sky["300"],
@@ -225,7 +225,7 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   blue: {
     light: {
       contrast: colors.white,
-      fg: colors.blue["800"],
+      fg: colors.blue["700"],
       subtle: colors.blue["100"],
       muted: colors.blue["200"],
       emphasized: colors.blue["300"],
@@ -247,7 +247,7 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   indigo: {
     light: {
       contrast: colors.white,
-      fg: colors.indigo["800"],
+      fg: colors.indigo["700"],
       subtle: colors.indigo["100"],
       muted: colors.indigo["200"],
       emphasized: colors.indigo["300"],
@@ -269,7 +269,7 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   violet: {
     light: {
       contrast: colors.white,
-      fg: colors.violet["800"],
+      fg: colors.violet["700"],
       subtle: colors.violet["100"],
       muted: colors.violet["200"],
       emphasized: colors.violet["300"],
@@ -291,7 +291,7 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   purple: {
     light: {
       contrast: colors.white,
-      fg: colors.purple["800"],
+      fg: colors.purple["700"],
       subtle: colors.purple["100"],
       muted: colors.purple["200"],
       emphasized: colors.purple["300"],
@@ -313,7 +313,7 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   fuchsia: {
     light: {
       contrast: colors.white,
-      fg: colors.fuchsia["800"],
+      fg: colors.fuchsia["700"],
       subtle: colors.fuchsia["100"],
       muted: colors.fuchsia["200"],
       emphasized: colors.fuchsia["300"],
@@ -335,7 +335,7 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   pink: {
     light: {
       contrast: colors.white,
-      fg: colors.pink["800"],
+      fg: colors.pink["700"],
       subtle: colors.pink["100"],
       muted: colors.pink["200"],
       emphasized: colors.pink["300"],
@@ -357,7 +357,7 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   rose: {
     light: {
       contrast: colors.white,
-      fg: colors.rose["800"],
+      fg: colors.rose["700"],
       subtle: colors.rose["100"],
       muted: colors.rose["200"],
       emphasized: colors.rose["300"],
@@ -379,21 +379,21 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   slate: {
     light: {
       contrast: colors.white,
-      fg: colors.slate["800"],
+      fg: colors.slate["700"],
       subtle: colors.slate["100"],
       muted: colors.slate["200"],
       emphasized: colors.slate["300"],
-      solid: colors.slate["900"],
+      solid: colors.slate["700"],
       focusRing: colors.slate["400"],
       border: colors.slate["500"],
     },
     dark: {
       contrast: colors.black,
-      fg: colors.slate["200"],
-      subtle: colors.slate["950"],
-      muted: colors.slate["900"],
+      fg: colors.slate["300"],
+      subtle: colors.slate["800"],
+      muted: colors.slate["700"],
       emphasized: colors.slate["700"],
-      solid: colors.slate["300"],
+      solid: colors.slate["200"],
       focusRing: colors.slate["400"],
       border: colors.slate["400"],
     },
@@ -401,21 +401,21 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   gray: {
     light: {
       contrast: colors.white,
-      fg: colors.gray["800"],
+      fg: colors.gray["700"],
       subtle: colors.gray["100"],
       muted: colors.gray["200"],
       emphasized: colors.gray["300"],
-      solid: colors.gray["900"],
+      solid: colors.gray["700"],
       focusRing: colors.gray["400"],
       border: colors.gray["500"],
     },
     dark: {
       contrast: colors.black,
-      fg: colors.gray["200"],
-      subtle: colors.gray["950"],
-      muted: colors.gray["900"],
+      fg: colors.gray["300"],
+      subtle: colors.gray["800"],
+      muted: colors.gray["700"],
       emphasized: colors.gray["700"],
-      solid: colors.gray["300"],
+      solid: colors.gray["200"],
       focusRing: colors.gray["400"],
       border: colors.gray["400"],
     },
@@ -423,21 +423,21 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   zinc: {
     light: {
       contrast: colors.white,
-      fg: colors.zinc["800"],
+      fg: colors.zinc["700"],
       subtle: colors.zinc["100"],
       muted: colors.zinc["200"],
       emphasized: colors.zinc["300"],
-      solid: colors.zinc["900"],
+      solid: colors.zinc["700"],
       focusRing: colors.zinc["400"],
       border: colors.zinc["500"],
     },
     dark: {
       contrast: colors.black,
-      fg: colors.zinc["200"],
-      subtle: colors.zinc["950"],
-      muted: colors.zinc["900"],
+      fg: colors.zinc["300"],
+      subtle: colors.zinc["800"],
+      muted: colors.zinc["700"],
       emphasized: colors.zinc["700"],
-      solid: colors.zinc["300"],
+      solid: colors.zinc["200"],
       focusRing: colors.zinc["400"],
       border: colors.zinc["400"],
     },
@@ -445,21 +445,21 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   neutral: {
     light: {
       contrast: colors.white,
-      fg: colors.neutral["800"],
+      fg: colors.neutral["700"],
       subtle: colors.neutral["100"],
       muted: colors.neutral["200"],
       emphasized: colors.neutral["300"],
-      solid: colors.neutral["900"],
+      solid: colors.neutral["700"],
       focusRing: colors.neutral["400"],
       border: colors.neutral["500"],
     },
     dark: {
       contrast: colors.black,
-      fg: colors.neutral["200"],
-      subtle: colors.neutral["950"],
-      muted: colors.neutral["900"],
+      fg: colors.neutral["300"],
+      subtle: colors.neutral["800"],
+      muted: colors.neutral["700"],
       emphasized: colors.neutral["700"],
-      solid: colors.neutral["300"],
+      solid: colors.neutral["200"],
       focusRing: colors.neutral["400"],
       border: colors.neutral["400"],
     },
@@ -467,21 +467,21 @@ export const PALETTE_SEMANTICS: PaletteSemantic = {
   stone: {
     light: {
       contrast: colors.white,
-      fg: colors.stone["800"],
+      fg: colors.stone["700"],
       subtle: colors.stone["100"],
       muted: colors.stone["200"],
       emphasized: colors.stone["300"],
-      solid: colors.stone["900"],
+      solid: colors.stone["700"],
       focusRing: colors.stone["400"],
       border: colors.stone["500"],
     },
     dark: {
       contrast: colors.black,
-      fg: colors.stone["200"],
-      subtle: colors.stone["950"],
-      muted: colors.stone["900"],
+      fg: colors.stone["300"],
+      subtle: colors.stone["800"],
+      muted: colors.stone["700"],
       emphasized: colors.stone["700"],
-      solid: colors.stone["300"],
+      solid: colors.stone["200"],
       focusRing: colors.stone["400"],
       border: colors.stone["400"],
     },
