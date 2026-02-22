@@ -40,12 +40,12 @@ const shape = styleVariants({
       components: { borderRadius: 0 },
     },
   },
-  rounded: {
+  round: {
     "@layer": {
       components: { borderRadius: "0.375rem" },
     },
   },
-  circular: {
+  circle: {
     "@layer": {
       components: { borderRadius: calc.multiply("infinity", "1px") },
     },
@@ -222,7 +222,7 @@ export const button = recipe({
     block,
   },
   defaultVariants: {
-    shape: "rounded",
+    shape: "round",
     fill: "solid",
     size: "md",
     block: false,
