@@ -1,0 +1,13 @@
+---
+import type { BoxProps } from "./Box.types.ts";
+
+const {
+  as: Tag = "div",
+  class: classList,
+  ...props
+}: BoxProps = Astro.props;
+---
+
+<Tag class:list={[classList]} {...props}>
+  <slot />
+</Tag>
