@@ -1,5 +1,6 @@
 import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
 import { fallbackVar, style, styleVariants } from "@vanilla-extract/css";
+import { calc } from "@vanilla-extract/css-utils";
 import { semanticColors } from "../../theme/semantic-colors/semantic-colors.contract.css.ts";
 import { utils } from "../../theme/utils/utils.contract.css.ts";
 import colors from "tailwindcss/colors";
@@ -46,7 +47,7 @@ const shape = styleVariants({
   },
   circular: {
     "@layer": {
-      components: { borderRadius: "calc(infinity * 1px)" },
+      components: { borderRadius: calc.multiply("infinity", "1px") },
     },
   },
 });
