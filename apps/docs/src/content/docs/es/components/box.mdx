@@ -1,0 +1,123 @@
+---
+title: Box
+description: Contenedor genérico y abstracto.
+sidebar:
+  badge:
+    text: New!
+    variant: success
+---
+
+import { TabItem, Tabs } from "@astrojs/starlight/components";
+import { Box } from "@liko-ui/astro";
+import Image from "astro/components/Image.astro";
+import CodePreview from "../../../../components/CodePreview.astro";
+import { compositionData } from "../../../../utils/composition.utils.ts";
+
+## Uso
+
+<Tabs>
+  <TabItem label="Vista previa">
+    <CodePreview>
+      <Box class="p-4 w-full bg-[tomato] text-white">
+        This is the Box
+      </Box>
+    </CodePreview>
+  </TabItem>
+  <TabItem label="Código">
+    ```astro
+    ---
+    import {Box} from "@liko-ui/astro";
+    ---
+
+    <Box class="p-4 w-full bg-[tomato] text-white">
+      This is the Box
+    </Box>
+    ```
+  </TabItem>
+</Tabs>
+
+## Ejemplos
+
+### Composición
+
+<Tabs>
+  <TabItem label="Vista previa">
+    <CodePreview>
+      <Box class="max-w-md border border-gray-700 rounded-xs overflow-hidden">
+        <Image
+          class="w-full h-50 object-cover object-center"
+          src={compositionData.imageUrl}
+          alt={compositionData.imageAlt}
+          width="100%"
+          height="200px"
+        />
+        <Box class="p-4 space-y-2">
+          <Box class="flex items-center gap-2">
+            <Box class="flex justify-between items-center gap-2">
+              <p>{compositionData.rating} ({compositionData.reviewCount})</p>
+            </Box>
+          </Box>
+          <p className="font-medium text-white">
+            {compositionData.title}
+          </p>
+          <Box class="flex items-center gap-2 text-gray-400">
+            {compositionData.formattedPrice} • {compositionData.beds} beds
+          </Box>
+        </Box>
+      </Box>
+    </CodePreview>
+  </TabItem>
+  <TabItem label="Código">
+    ```astro ins=/(?:loadingText="Loading..."|loadingSpinner="{}"|spinnerPlacement="end"|loading)/
+    ---
+    import { Box } from '@kori/ui';
+    ---
+
+    <Box class="max-w-md border border-gray-700 rounded-xs overflow-hidden">
+      <Image
+        class="w-full h-50 object-cover object-center"
+        src={compositionData.imageUrl}
+        alt={compositionData.imageAlt}
+        width="100%"
+        height="200px"
+      />
+      <Box class="p-4 space-y-2">
+        <Box class="flex items-center gap-2">
+          <Box class="flex justify-between items-center gap-2">
+            <p>{compositionData.rating} ({compositionData.reviewCount})</p>
+          </Box>
+        </Box>
+        <p className="font-medium text-white">
+          {compositionData.title}
+        </p>
+        <Box class="flex items-center gap-2 text-gray-400">
+          {compositionData.formattedPrice} • {compositionData.beds} beds
+        </Box>
+      </Box>
+    </Box>
+    ```
+  </TabItem>
+</Tabs>
+
+### As
+
+<Tabs>
+  <TabItem label="Vista previa">
+    <CodePreview>
+      <Box as="section">
+        This is a Box rendered as a section
+      </Box>
+    </CodePreview>
+  </TabItem>
+  <TabItem label="Código">
+    ```astro ins=/as="section"/
+    ---
+    import { Box } from '@kori/ui';
+    ---
+
+    <Box as="section">
+      This is a Box rendered as a section
+    </Box>
+    ```
+  </TabItem>
+</Tabs>
