@@ -1,4 +1,4 @@
-import type { Palette } from "../theme/palette/palette.types.ts";
+import type { Palette } from "../theme/palette/palette.types";
 
 export type BaseProps = {
   as?: astroHTML.JSX.Element;

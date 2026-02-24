@@ -1,7 +1,7 @@
 import { assignVars, style } from "@vanilla-extract/css";
-import { semanticColors } from "../semantic-colors/semantic-colors.contract.css.ts";
-import { PALETTE_SEMANTICS } from "./palette.constants.ts";
-import type { Palette, PaletteMap } from "./palette.types.ts";
+import { semanticColors } from "../semantic-colors/semantic-colors.contract.css";
+import { PALETTE_SEMANTICS } from "./palette.constants";
+import type { Palette, PaletteMap } from "./palette.types";
 
 function makePalette(palette: Palette) {
   const {

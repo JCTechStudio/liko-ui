@@ -1,5 +1,5 @@
 import colors from "tailwindcss/colors";
-import type { PaletteSemantic } from "./palette.types.ts";
+import type { PaletteSemantic } from "./palette.types";
 
 export const PALETTE_SEMANTICS: PaletteSemantic = {
   red: {

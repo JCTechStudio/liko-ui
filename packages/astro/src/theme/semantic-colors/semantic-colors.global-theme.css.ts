@@ -1,6 +1,6 @@
 import { createGlobalTheme } from "@vanilla-extract/css";
 import colors from "tailwindcss/colors";
-import { semanticColors } from "./semantic-colors.contract.css.ts";
+import { semanticColors } from "./semantic-colors.contract.css";
 
 createGlobalTheme(":root", semanticColors, {
   "@layer": "theme",
