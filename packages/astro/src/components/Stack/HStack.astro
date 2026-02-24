@@ -1,0 +1,14 @@
+---
+import Stack from "./Stack.astro";
+import { hstack } from "./stack.css";
+import type { StackProps } from "./Stack.types";
+
+const {
+  class: classList,
+  ...props
+}: StackProps = Astro.props;
+---
+
+<Stack class:list={[hstack, classList]} {...props}>
+  <slot />
+</Stack>
