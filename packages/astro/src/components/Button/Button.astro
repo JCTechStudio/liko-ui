@@ -1,5 +1,5 @@
 ---
-import { button, loadingContent, spinnerWrapper, textWrapper } from "./button.css";
+import { button, loadingContent, spinner, spinnerWrapper, textWrapper } from "./button.css";
 import type { ButtonProps } from "./Button.types";
 import { palettes } from "../../theme/palette/palette.css";
 
@@ -19,6 +19,15 @@ const {
   spinnerPlacement = "start",
   ...props
 }: ButtonProps = Astro.props;
+
+const isJSXVNode = (value: unknown): value is { type: astroHTML.JSX.Element; props?: Record<string, unknown> } => {
+  return typeof value === "object" && value !== null && "type" in value && "props" in value;
+};
+
+const spinnerVNode = isJSXVNode(loadingSpinner) ? loadingSpinner : null;
+const SpinnerTag = spinnerVNode?.type;
+const spinnerProps = spinnerVNode?.props ?? {};
+const { children: spinnerChildren, ...spinnerAttrs } = spinnerProps;
 ---
 
 <Tag class:list={[
@@ -28,20 +37,26 @@ const {
 ]} {type} data-loading={loading} disabled={disabled || loading} {...props}>
   {loading ?
     (<span class={loadingContent}>
-      {loadingText ? (
+      {loadingText ?
         <>
-          {spinnerPlacement === "start" && (loadingSpinner ?? <span>[]</span>)}
+          {spinnerPlacement === "start" && (SpinnerTag ?
+            <SpinnerTag {...spinnerAttrs}>{spinnerChildren}</SpinnerTag> :
+            <span class={spinner} />)}
           {loadingText}
-          {spinnerPlacement === "end" && (loadingSpinner ?? <span>[]</span>)}
-        </>) : (
+          {spinnerPlacement === "end" && (SpinnerTag ?
+            <SpinnerTag {...spinnerAttrs}>{spinnerChildren}</SpinnerTag> :
+            <span class={spinner} />)}
+        </> :
         <>
           <div class={spinnerWrapper}>
-            {loadingSpinner ?? <span>[]</span>}
+            {SpinnerTag ?
+              <SpinnerTag {...spinnerAttrs}>{spinnerChildren}</SpinnerTag> :
+              <span class={spinner} />}
           </div>
           <span class={textWrapper}>
             <slot />
           </span>
-        </>)}
+        </>}
     </span>) :
     <slot />}
 </Tag>

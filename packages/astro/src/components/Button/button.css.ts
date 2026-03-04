@@ -1,4 +1,4 @@
-import { fallbackVar, style, styleVariants } from "@vanilla-extract/css";
+import { fallbackVar, keyframes, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
 import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
 import colors from "tailwindcss/colors";
@@ -249,6 +249,25 @@ export const spinnerWrapper = style({
       insetInlineStart: "50%",
       top: "50%",
       transform: "translate(-50%, -50%)",
+    },
+  },
+});
+
+const spin = keyframes({
+  "to": { transform: "rotate(360deg)" },
+});
+
+export const spinner = style({
+  "@layer": {
+    components: {
+      display: "inline-block",
+      width: "1em",
+      height: "1em",
+      border: "0.125em solid currentColor",
+      borderRadius: "9999px",
+      borderBottomColor: "transparent",
+      borderInlineStartColor: "transparent",
+      animation: `${spin} 500ms linear infinite`,
     },
   },
 });
