@@ -8,22 +8,22 @@ sidebar:
 ---
 
 import { TabItem, Tabs } from "@astrojs/starlight/components";
-import { Button } from "@liko-ui/astro";
+import { Button, HStack, Stack } from "@liko-ui/astro";
 import CodePreview from "../../../../components/CodePreview.astro";
 import { paletteColors } from "../../../../utils/colors.utils.ts";
 
-## Uso
+## Uso básico
 
 <Tabs>
-  <TabItem label="Vista previa">
+  <TabItem label="Preview">
     <CodePreview>
       <Button>Button</Button>
     </CodePreview>
   </TabItem>
-  <TabItem label="Código">
+  <TabItem label="Code">
     ```astro showLineNumbers
     ---
-    import { Button } from '@kori/ui';
+    import {Button} from '@kori/ui';
     ---
 
     <Button>
@@ -33,22 +33,22 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
   </TabItem>
 </Tabs>
 
-## Ejemplos
+## Variantes
 
 ### Shape
 
 <Tabs>
-  <TabItem label="Vista previa">
+  <TabItem label="Preview">
     <CodePreview>
       <Button shape="sharp">Button</Button>
       <Button>Button</Button>
       <Button shape="circle">Button</Button>
     </CodePreview>
   </TabItem>
-  <TabItem label="Código">
+  <TabItem label="Code">
     ```astro ins=/shape="(?:sharp|circle)"/
     ---
-    import { Button } from '@kori/ui';
+    import {Button} from '@kori/ui';
     ---
 
     <Button shape="sharp">
@@ -69,11 +69,11 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
 ### Fill
 
 <Tabs>
-  <TabItem label="Vista previa">
+  <TabItem label="Preview">
     <CodePreview>
-      <div className="flex flex-col items-start gap-2">
+      <Stack class="gap-4">
         {paletteColors.map(([name]) => (
-          <div className="flex flex-row items-center gap-5" key={name}>
+          <HStack key={name} class="gap-4">
             <span className="min-w-[8ch]">{name}</span>
             <Button palette={name}>Button</Button>
             <Button palette={name} fill="tonal">Button</Button>
@@ -81,40 +81,30 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
             <Button palette={name} fill="outline">Button</Button>
             <Button palette={name} fill="clear">Button</Button>
             <Button palette={name} fill="text">Button</Button>
-          </div>
+          </HStack>
         ))}
-      </div>
+      </Stack>
     </CodePreview>
   </TabItem>
-  <TabItem label="Código">
+  <TabItem label="Code">
     ```astro ins=/fill="(?:tonal|surface|outline|clear|text)"/
     ---
-    import { Button } from '@kori/ui';
+    import {Button, HStack, Stack} from '@kori/ui';
     ---
 
-    <Button>
-      Button
-    </Button>
-
-    <Button fill="tonal">
-      Button
-    </Button>
-
-    <Button fill="surface">
-      Button
-    </Button>
-
-    <Button fill="outline">
-      Button
-    </Button>
-
-    <Button fill="clear">
-      Button
-    </Button>
-
-    <Button fill="text">
-      Button
-    </Button>
+    <Stack class="gap-4">
+      {paletteColors.map(([name]) => (
+        <HStack key={name} class="gap-4">
+          <span className="min-w-[8ch]">{name}</span>
+          <Button palette={name}>Button</Button>
+          <Button palette={name} fill="tonal">Button</Button>
+          <Button palette={name} fill="surface">Button</Button>
+          <Button palette={name} fill="outline">Button</Button>
+          <Button palette={name} fill="clear">Button</Button>
+          <Button palette={name} fill="text">Button</Button>
+        </HStack>
+      ))}
+    </Stack>
     ```
   </TabItem>
 </Tabs>
@@ -122,40 +112,44 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
 ### Size
 
 <Tabs>
-  <TabItem label="Vista previa">
+  <TabItem label="Preview">
     <CodePreview>
-      <Button size="xs">Button (xs)</Button>
-      <Button size="sm">Button (sm)</Button>
-      <Button>Button (md)</Button>
-      <Button size="lg">Button (lg)</Button>
-      <Button size="xl">Button (xl)</Button>
+      <HStack class="gap-4">
+        <Button size="xs">Button (xs)</Button>
+        <Button size="sm">Button (sm)</Button>
+        <Button>Button (md)</Button>
+        <Button size="lg">Button (lg)</Button>
+        <Button size="xl">Button (xl)</Button>
+      </HStack>
     </CodePreview>
   </TabItem>
-  <TabItem label="Código">
+  <TabItem label="Code">
     ```astro ins=/size="(?:xs|sm|lg|xl)"/
     ---
-    import { Button } from '@kori/ui';
+    import {Button, HStack} from '@kori/ui';
     ---
 
-    <Button size="xs">
-      Button
-    </Button>
+    <HStack class="gap-4">
+      <Button size="xs">
+        Button (xs)
+      </Button>
 
-    <Button size="sm">
-      Button
-    </Button>
+      <Button size="sm">
+        Button (sm)
+      </Button>
 
-    <Button>
-      Button
-    </Button>
+      <Button>
+        Button (md)
+      </Button>
 
-    <Button size="lg">
-      Button
-    </Button>
+      <Button size="lg">
+        Button (lg)
+      </Button>
 
-    <Button size="xl">
-      Button
-    </Button>
+      <Button size="xl">
+        Button (xl)
+      </Button>
+    </HStack>
     ```
   </TabItem>
 </Tabs>
@@ -163,15 +157,15 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
 ### Block
 
 <Tabs>
-  <TabItem label="Vista previa">
+  <TabItem label="Preview">
     <CodePreview>
       <Button block>Button</Button>
     </CodePreview>
   </TabItem>
-  <TabItem label="Código">
+  <TabItem label="Code">
     ```astro ins="block"
     ---
-    import { Button } from '@kori/ui';
+    import {Button} from '@kori/ui';
     ---
 
     <Button block>
@@ -181,18 +175,20 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
   </TabItem>
 </Tabs>
 
+## Estados
+
 ### Disabled
 
 <Tabs>
-  <TabItem label="Vista previa">
+  <TabItem label="Preview">
     <CodePreview>
       <Button disabled>Button</Button>
     </CodePreview>
   </TabItem>
-  <TabItem label="Código">
+  <TabItem label="Code">
     ```astro ins="disabled"
     ---
-    import { Button } from '@kori/ui';
+    import {Button} from '@kori/ui';
     ---
 
     <Button disabled>
@@ -205,56 +201,164 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
 ### Loading
 
 <Tabs>
-  <TabItem label="Vista previa">
+  <TabItem label="Preview">
     <CodePreview>
-      <Button loading>Button</Button>
-      <Button loading loadingText="Loading...">Button</Button>
-      <Button loading loadingSpinner="{}">Button</Button>
-      <Button loading spinnerPlacement="end">Button</Button>
+      <HStack class="gap-4">
+        <Button loading>
+          Loading button with hidden long text
+        </Button>
+        <Button loading loadingText="Loading...">
+          Loading button with hidden long text
+        </Button>
+        <Button loading loadingText="Loading..." spinnerPlacement="end">
+          Loading button with hidden long text
+        </Button>
+      </HStack>
     </CodePreview>
   </TabItem>
-  <TabItem label="Código">
+  <TabItem label="Code">
     ```astro ins=/(?:loadingText="Loading..."|loadingSpinner="{}"|spinnerPlacement="end"|loading)/
     ---
-    import { Button } from '@kori/ui';
+    import {Button, HStack} from '@kori/ui';
     ---
 
-    <Button loading>
-      Button
-    </Button>
+    <HStack class="gap-4">
+      <Button loading>
+        Loading button with hidden long text
+      </Button>
 
-    <Button loading loadingText="Loading...">
-      Button
-    </Button>
+      <Button loading loadingText="Loading...">
+        Loading button with hidden long text
+      </Button>
 
-    <Button loading loadingSpinner="{}">
-      Button
-    </Button>
-
-    <Button loading spinnerPlacement="end">
-      Button
-    </Button>
+      <Button loading loadingText="Loading..." spinnerPlacement="end">
+        Loading button with hidden long text
+      </Button>
+    </HStack>
     ```
   </TabItem>
 </Tabs>
 
-### As
+### Spinner personalizado
 
 <Tabs>
-  <TabItem label="Vista previa">
+  <TabItem label="Preview">
     <CodePreview>
-      <Button as="div">Button</Button>
+      <HStack class="gap-4">
+        <Button
+          loading
+          loadingSpinner={
+            <span className='
+                size-4 border border-dashed border-black
+                border-t-transparent rounded-full animate-spin' />
+          }
+        >
+          Loading button with hidden long text
+        </Button>
+        <Button
+          loading
+          loadingText="Loading..."
+          loadingSpinner={
+            <span className='
+                size-4 border border-dashed border-black
+                border-t-transparent rounded-full animate-spin' />
+          }
+        >
+          Loading button with hidden long text
+        </Button>
+        <Button
+          loading
+          loadingText="Loading..."
+          loadingSpinner={
+            <span className='
+                size-4 border border-dashed border-black
+                border-t-transparent rounded-full animate-spin' />
+          }
+          spinnerPlacement="end"
+        >
+          Loading button with hidden long text
+        </Button>
+      </HStack>
     </CodePreview>
   </TabItem>
-  <TabItem label="Código">
-    ```astro ins=/as="div"/
+  <TabItem label="Code">
+    ```astro ins=/(?:loadingText="Loading..."|loadingSpinner="{}"|spinnerPlacement="end"|loading)/
     ---
-    import { Button } from '@kori/ui';
+    import {Button, HStack} from '@kori/ui';
     ---
 
-    <Button as="div">
+    <HStack class="gap-4">
+      <Button
+        loading
+        loadingSpinner={
+          <span className='
+                size-4 border border-dashed border-black
+                border-t-transparent rounded-full animate-spin' />
+        }
+      >
+        Loading button with hidden long text
+      </Button>
+      <Button
+        loading
+        loadingText="Loading..."
+        loadingSpinner={
+          <span className='
+                size-4 border border-dashed border-black
+                border-t-transparent rounded-full animate-spin' />
+        }
+      >
+        Loading button with hidden long text
+      </Button>
+      <Button
+        loading
+        loadingText="Loading..."
+        loadingSpinner={
+          <span className='
+                size-4 border border-dashed border-black
+                border-t-transparent rounded-full animate-spin' />
+        }
+        spinnerPlacement="end"
+      >
+        Loading button with hidden long text
+      </Button>
+    </HStack>
+    ```
+  </TabItem>
+</Tabs>
+
+## Polimórfico
+
+<Tabs>
+  <TabItem label="Preview">
+    <CodePreview>
+      <Button as="a" href="#">Button</Button>
+    </CodePreview>
+  </TabItem>
+  <TabItem label="Code">
+    ```astro ins=/as="div"/
+    ---
+    import {Button} from '@kori/ui';
+    ---
+
+    <Button as="a" href="#">
       Button
     </Button>
     ```
   </TabItem>
 </Tabs>
+
+## Props
+
+| Prop               | Type                                                                | Default     | Description                                                                  |
+|--------------------|---------------------------------------------------------------------|-------------|------------------------------------------------------------------------------|
+| `as`               | `astroHTML.JSX.Element`                                             | `"button"`  | Etiqueta polimórfica usada para renderizar el componente.                    |
+| `shape`            | `"round" \| "sharp" \| "circle"`                                    | `"round"`   | Estilo del radio del borde.                                                  |
+| `fill`             | `"solid" \| "tonal" \| "surface" \| "outline" \| "clear" \| "text"` | `"solid"`   | Estilo visual de relleno.                                                    |
+| `size`             | `"xs" \| "sm" \| "md" \| "lg" \| "xl"`                              | `"md"`      | Escala de tamaño del botón.                                                  |
+| `block`            | `boolean`                                                           | `false`     | Hace que el botón ocupe todo el ancho disponible.                            |
+| `palette`          | `Palette` (all tailwind colors)                                     | `undefined` | Clave de color de la paleta (por ejemplo: `blue`, `emerald`, `rose`).        |
+| `disabled`         | `boolean`                                                           | `false`     | Desactiva el botón.                                                          |
+| `loading`          | `boolean`                                                           | `false`     | Activa el estado de carga y deshabilita la interacción mientras está activo. |
+| `loadingText`      | `astroHTML.JSX.Element`                                             | `undefined` | Contenido personalizado que se muestra durante la carga.                     |
+| `loadingSpinner`   | `astroHTML.JSX.Element`                                             | `undefined` | Nodo de spinner personalizado usado durante el estado de carga.              |
+| `spinnerPlacement` | `"start" \| "end"`                                                  | `"start"`   | Posición del spinner cuando `loadingText` está presente.                     |
