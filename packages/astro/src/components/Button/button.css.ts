@@ -230,3 +230,34 @@ export const button = recipe({
 });
 
 export type ButtonVariants = RecipeVariants<typeof button>;
+
+export const loadingContent = style({
+  "@layer": {
+    components: {
+      display: "contents",
+    },
+  },
+});
+
+export const spinnerWrapper = style({
+  "@layer": {
+    components: {
+      position: "absolute",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      insetInlineStart: "50%",
+      top: "50%",
+      transform: "translate(-50%, -50%)",
+    },
+  },
+});
+
+export const textWrapper = style({
+  "@layer": {
+    components: {
+      visibility: "hidden",
+      display: "contents",
+    },
+  },
+});

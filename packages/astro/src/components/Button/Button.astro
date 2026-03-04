@@ -1,5 +1,5 @@
 ---
-import { button } from "./button.css";
+import { button, loadingContent, spinnerWrapper, textWrapper } from "./button.css";
 import type { ButtonProps } from "./Button.types";
 import { palettes } from "../../theme/palette/palette.css";
 
@@ -22,35 +22,26 @@ const {
 ---
 
 <Tag class:list={[
-  button({
-    shape,
-    fill,
-    size,
-    block,
-  }),
-  palette ? palettes[palette] : "",
+  button({ shape, fill, size, block }),
+  palette && palettes[palette],
   classList,
 ]} {type} data-loading={loading} disabled={disabled || loading} {...props}>
   {loading ?
-    (<span class="loading-content">
-      {spinnerPlacement === "start" && (
-        loadingText ?
-          (loadingSpinner ?? <span>[]</span>) :
-          (<span class="spinner-wrapper">
+    (<span class={loadingContent}>
+      {loadingText ? (
+        <>
+          {spinnerPlacement === "start" && (loadingSpinner ?? <span>[]</span>)}
+          {loadingText}
+          {spinnerPlacement === "end" && (loadingSpinner ?? <span>[]</span>)}
+        </>) : (
+        <>
+          <div class={spinnerWrapper}>
             {loadingSpinner ?? <span>[]</span>}
-          </span>)
-      )}
-      {loadingText ??
-        <span class="text-wrapper">
-          <slot />
-        </span>}
-      {spinnerPlacement === "end" && (
-        loadingText ?
-          (loadingSpinner ?? <span>[]</span>) :
-          (<span class="spinner-wrapper">
-            {loadingSpinner ?? <span>[]</span>}
-          </span>)
-      )}
+          </div>
+          <span class={textWrapper}>
+            <slot />
+          </span>
+        </>)}
     </span>) :
     <slot />}
 </Tag>
