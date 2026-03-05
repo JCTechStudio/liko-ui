@@ -13,17 +13,17 @@ import Image from "astro/components/Image.astro";
 import CodePreview from "../../../../components/CodePreview.astro";
 import { compositionData } from "../../../../utils/composition.utils.ts";
 
-## Uso
+## Uso básico
 
 <Tabs>
-  <TabItem label="Vista previa">
+  <TabItem label="Preview">
     <CodePreview>
       <Box class="p-4 w-full bg-[tomato] text-white">
         This is the Box
       </Box>
     </CodePreview>
   </TabItem>
-  <TabItem label="Código">
+  <TabItem label="Code">
     ```astro
     ---
     import {Box} from "@liko-ui/astro";
@@ -41,7 +41,7 @@ import { compositionData } from "../../../../utils/composition.utils.ts";
 ### Composición
 
 <Tabs>
-  <TabItem label="Vista previa">
+  <TabItem label="Preview">
     <CodePreview>
       <Box class="max-w-md border border-gray-700 rounded-xs overflow-hidden">
         <Image
@@ -67,10 +67,10 @@ import { compositionData } from "../../../../utils/composition.utils.ts";
       </Box>
     </CodePreview>
   </TabItem>
-  <TabItem label="Código">
-    ```astro ins=/(?:loadingText="Loading..."|loadingSpinner="{}"|spinnerPlacement="end"|loading)/
+  <TabItem label="Code">
+    ```astro
     ---
-    import { Box } from '@kori/ui';
+    import {Box} from '@kori/ui';
     ---
 
     <Box class="max-w-md border border-gray-700 rounded-xs overflow-hidden">
@@ -99,20 +99,20 @@ import { compositionData } from "../../../../utils/composition.utils.ts";
   </TabItem>
 </Tabs>
 
-### As
+## Polimorfismo
 
 <Tabs>
-  <TabItem label="Vista previa">
+  <TabItem label="Preview">
     <CodePreview>
       <Box as="section">
         This is a Box rendered as a section
       </Box>
     </CodePreview>
   </TabItem>
-  <TabItem label="Código">
+  <TabItem label="Code">
     ```astro ins=/as="section"/
     ---
-    import { Box } from '@kori/ui';
+    import {Box} from '@kori/ui';
     ---
 
     <Box as="section">

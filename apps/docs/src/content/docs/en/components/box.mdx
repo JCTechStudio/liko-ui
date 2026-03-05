@@ -13,7 +13,7 @@ import Image from "astro/components/Image.astro";
 import CodePreview from "../../../../components/CodePreview.astro";
 import { compositionData } from "../../../../utils/composition.utils.ts";
 
-## Usage
+## Basic usage
 
 <Tabs>
   <TabItem label="Preview">
@@ -68,9 +68,9 @@ import { compositionData } from "../../../../utils/composition.utils.ts";
     </CodePreview>
   </TabItem>
   <TabItem label="Code">
-    ```astro ins=/(?:loadingText="Loading..."|loadingSpinner="{}"|spinnerPlacement="end"|loading)/
+    ```astro
     ---
-    import { Box } from '@kori/ui';
+    import {Box} from '@kori/ui';
     ---
 
     <Box class="max-w-md border border-gray-700 rounded-xs overflow-hidden">
@@ -99,7 +99,7 @@ import { compositionData } from "../../../../utils/composition.utils.ts";
   </TabItem>
 </Tabs>
 
-### As
+## Polymorphic
 
 <Tabs>
   <TabItem label="Preview">
@@ -112,7 +112,7 @@ import { compositionData } from "../../../../utils/composition.utils.ts";
   <TabItem label="Code">
     ```astro ins=/as="section"/
     ---
-    import { Box } from '@kori/ui';
+    import {Box} from '@kori/ui';
     ---
 
     <Box as="section">
