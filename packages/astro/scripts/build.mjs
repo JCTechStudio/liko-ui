@@ -199,7 +199,11 @@ function writePackageJson() {
 }
 
 function normalizeCss(contents) {
-  return contents.trimEnd();
+  return contents
+    .trim()
+    .replace(/\s+/g, " ")
+    .replace(/\s*([{}:;,])\s*/g, "$1")
+    .replace(/;}/g, "}");
 }
 
 function writeStylesFile() {
@@ -216,7 +220,7 @@ function writeStylesFile() {
   }
 
   fs.mkdirSync(DIST_DIR, { recursive: true });
-  fs.writeFileSync(DIST_STYLES_FILE, `${styles.filter(Boolean).join("\n\n")}\n`, "utf8");
+  fs.writeFileSync(DIST_STYLES_FILE, `${styles.filter(Boolean).join("")}\n`, "utf8");
 }
 
 async function buildDist() {
