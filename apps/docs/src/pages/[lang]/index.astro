@@ -18,31 +18,32 @@ const i18n = {
 };
 ---
 
-<StarlightPage frontmatter={{
-  title: i18n.title,
-  template: "splash",
-  hero: {
-    tagline: i18n.hero.tagline,
-    image: {
-      light: LogoLight,
-      dark: LogoDark
-    },
-    actions: [
-      {
-        text: i18n.hero.getStarted,
-        link: `/${lang}/getting-started/installation`,
-        icon: "laptop",
+<StarlightPage
+  frontmatter={{
+    title: i18n.title,
+    template: "splash",
+    hero: {
+      tagline: i18n.hero.tagline,
+      image: {
+        light: LogoLight,
+        dark: LogoDark,
       },
-      {
-        text: i18n.hero.viewOnGitHub,
-        link: "https://github.com/JCTechStudio/koi",
-        icon: "github",
-        variant: "minimal",
-        attrs: {
-          iconPosition: "start",
+      actions: [
+        {
+          text: i18n.hero.getStarted,
+          link: `/${lang}/getting-started/installation`,
+          icon: "laptop",
         },
-      },
-    ],
-  },
-}}>
-</StarlightPage>
+        {
+          text: i18n.hero.viewOnGitHub,
+          link: "https://github.com/JCTechStudio/koi",
+          icon: "github",
+          variant: "minimal",
+          attrs: {
+            iconPosition: "start",
+          },
+        },
+      ],
+    },
+  }}
+/>
