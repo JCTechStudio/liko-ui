@@ -7,6 +7,9 @@ const ROOT = process.cwd();
 const SRC_DIR = path.join(ROOT, "src");
 const DIST_DIR = path.join(ROOT, "dist");
 const COMPONENTS_DIR = path.join(SRC_DIR, "components");
+const SRC_STYLES_FILE = path.join(SRC_DIR, "styles.css");
+const DIST_STYLES_FILE = path.join(DIST_DIR, "styles.css");
+const GENERATED_STYLES_FILE = "__generated-styles.css";
 
 const EXTERNAL_PREFIXES = ["@vanilla-extract/recipes", "@vanilla-extract/css"];
 
@@ -82,7 +85,7 @@ function assetFileNames(assetInfo) {
 
   const isHasCss = names.some((name) => name.endsWith(".css"));
   if (isHasCss) {
-    return "styles.css";
+    return GENERATED_STYLES_FILE;
   }
 
   return names[0] || "asset";
@@ -195,6 +198,27 @@ function writePackageJson() {
   fs.writeFileSync(outFile, `${JSON.stringify(outPkg, null, 2)}\n`, "utf8");
 }
 
+function normalizeCss(contents) {
+  return contents.trimEnd();
+}
+
+function writeStylesFile() {
+  const generatedStylesFile = path.join(DIST_DIR, GENERATED_STYLES_FILE);
+  const styles = [];
+
+  if (fs.existsSync(SRC_STYLES_FILE)) {
+    styles.push(normalizeCss(fs.readFileSync(SRC_STYLES_FILE, "utf8")));
+  }
+
+  if (fs.existsSync(generatedStylesFile)) {
+    styles.push(normalizeCss(fs.readFileSync(generatedStylesFile, "utf8")));
+    fs.rmSync(generatedStylesFile);
+  }
+
+  fs.mkdirSync(DIST_DIR, { recursive: true });
+  fs.writeFileSync(DIST_STYLES_FILE, `${styles.filter(Boolean).join("\n\n")}\n`, "utf8");
+}
+
 async function buildDist() {
   fs.rmSync(DIST_DIR, { recursive: true, force: true });
 
@@ -237,6 +261,10 @@ async function buildDist() {
       continue;
     }
 
+    if (abs === SRC_STYLES_FILE) {
+      continue;
+    }
+
     const outFile = path.join(DIST_DIR, relFromSrc);
     fs.mkdirSync(path.dirname(outFile), { recursive: true });
 
@@ -249,6 +277,7 @@ async function buildDist() {
     }
   }
 
+  writeStylesFile();
   writeIndexFile();
   writePackageJson();
 

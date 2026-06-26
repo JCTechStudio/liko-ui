@@ -1,0 +1,7 @@
+@layer reset;
+
+@layer reset {
+  a {
+    text-decoration: none;
+  }
+}
