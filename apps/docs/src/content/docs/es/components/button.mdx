@@ -9,8 +9,8 @@ sidebar:
 
 import { TabItem, Tabs } from "@astrojs/starlight/components";
 import { Button, HStack, Stack } from "@liko-ui/astro";
-import CodePreview from "../../../../components/CodePreview.astro";
-import { paletteColors } from "../../../../utils/colors.utils.ts";
+import { CodePreview } from "../../../../components/components";
+import { paletteColors } from "../../../../utils/colors.utils";
 
 ## Uso básico
 
@@ -21,9 +21,9 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
     </CodePreview>
   </TabItem>
   <TabItem label="Code">
-    ```astro showLineNumbers
+    ```astro
     ---
-    import {Button} from '@kori/ui';
+    import {Button} from '@liko-ui/astro';
     ---
 
     <Button>
@@ -48,7 +48,7 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
   <TabItem label="Code">
     ```astro ins=/shape="(?:sharp|circle)"/
     ---
-    import {Button} from '@kori/ui';
+    import {Button} from '@liko-ui/astro';
     ---
 
     <Button shape="sharp">
@@ -89,13 +89,13 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
   <TabItem label="Code">
     ```astro ins=/fill="(?:tonal|surface|outline|clear|text)"/
     ---
-    import {Button, HStack, Stack} from '@kori/ui';
+    import {Button, HStack, Stack} from '@liko-ui/astro';
     ---
 
     <Stack class="gap-4">
       {paletteColors.map(([name]) => (
         <HStack key={name} class="gap-4">
-          <span className="min-w-[8ch]">{name}</span>
+          <span className="min-w-[8ch]">{ name}</span>
           <Button palette={name}>Button</Button>
           <Button palette={name} fill="tonal">Button</Button>
           <Button palette={name} fill="surface">Button</Button>
@@ -126,7 +126,7 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
   <TabItem label="Code">
     ```astro ins=/size="(?:xs|sm|lg|xl)"/
     ---
-    import {Button, HStack} from '@kori/ui';
+    import {Button, HStack} from '@liko-ui/astro';
     ---
 
     <HStack class="gap-4">
@@ -165,7 +165,7 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
   <TabItem label="Code">
     ```astro ins="block"
     ---
-    import {Button} from '@kori/ui';
+    import {Button} from '@liko-ui/astro';
     ---
 
     <Button block>
@@ -188,7 +188,7 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
   <TabItem label="Code">
     ```astro ins="disabled"
     ---
-    import {Button} from '@kori/ui';
+    import {Button} from '@liko-ui/astro';
     ---
 
     <Button disabled>
@@ -204,6 +204,7 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
   <TabItem label="Preview">
     <CodePreview>
       <HStack class="gap-4">
+        <Button loading></Button>
         <Button loading>
           Loading button with hidden long text
         </Button>
@@ -217,12 +218,14 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
     </CodePreview>
   </TabItem>
   <TabItem label="Code">
-    ```astro ins=/(?:loadingText="Loading..."|loadingSpinner="{}"|spinnerPlacement="end"|loading)/
+    ```astro ins=/loading(?:Text="Loading...")?|spinnerPlacement="end"/
     ---
-    import {Button, HStack} from '@kori/ui';
+    import {Button, HStack} from '@liko-ui/astro';
     ---
 
     <HStack class="gap-4">
+      <Button loading></Button>
+
       <Button loading>
         Loading button with hidden long text
       </Button>
@@ -245,6 +248,14 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
   <TabItem label="Preview">
     <CodePreview>
       <HStack class="gap-4">
+        <Button
+          loading
+          loadingSpinner={
+            <span className='
+                size-4 border border-dashed border-black
+                border-t-transparent rounded-full animate-spin' />
+          }
+        ></Button>
         <Button
           loading
           loadingSpinner={
@@ -282,9 +293,9 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
     </CodePreview>
   </TabItem>
   <TabItem label="Code">
-    ```astro ins=/(?:loadingText="Loading..."|loadingSpinner="{}"|spinnerPlacement="end"|loading)/
+    ```astro ins=/loading(?:Text="Loading..."|Spinner)?|spinnerPlacement="end"/
     ---
-    import {Button, HStack} from '@kori/ui';
+    import {Button, HStack} from '@liko-ui/astro';
     ---
 
     <HStack class="gap-4">
@@ -295,9 +306,19 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
                 size-4 border border-dashed border-black
                 border-t-transparent rounded-full animate-spin' />
         }
+      ></Button>
+
+      <Button
+        loading
+        loadingSpinner={
+          <span className='
+                size-4 border border-dashed border-black
+                border-t-transparent rounded-full animate-spin' />
+        }
       >
         Loading button with hidden long text
       </Button>
+
       <Button
         loading
         loadingText="Loading..."
@@ -309,6 +330,7 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
       >
         Loading button with hidden long text
       </Button>
+
       <Button
         loading
         loadingText="Loading..."
@@ -337,7 +359,7 @@ import { paletteColors } from "../../../../utils/colors.utils.ts";
   <TabItem label="Code">
     ```astro ins=/as="div"/
     ---
-    import {Button} from '@kori/ui';
+    import {Button} from '@liko-ui/astro';
     ---
 
     <Button as="a" href="#">
