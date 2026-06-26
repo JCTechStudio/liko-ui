@@ -1,6 +1,9 @@
 import type { HTMLAttributes } from "astro/types";
+import type { RecipeVariants } from "@vanilla-extract/recipes";
 import type { BaseProps, ColorProps } from "../Base.types";
-import type { ButtonVariants } from "./button.css";
+import type { button } from "./button.css";
+
+type ButtonVariants = RecipeVariants<typeof button>;
 
 type SpinnerPlacement = "start" | "end";
 

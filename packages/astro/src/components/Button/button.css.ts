@@ -1,6 +1,6 @@
 import { fallbackVar, keyframes, style, styleVariants } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils";
-import { recipe, type RecipeVariants } from "@vanilla-extract/recipes";
+import { recipe } from "@vanilla-extract/recipes";
 import colors from "tailwindcss/colors";
 import { semanticColors } from "../../theme/semantic-colors/semantic-colors.contract.css";
 import { utils } from "../../theme/utils/utils.contract.css";
@@ -228,8 +228,6 @@ export const button = recipe({
     block: false,
   },
 });
-
-export type ButtonVariants = RecipeVariants<typeof button>;
 
 export const loadingContent = style({
   "@layer": {
