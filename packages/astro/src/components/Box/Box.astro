@@ -1,11 +1,7 @@
 ---
 import type { BoxProps } from "./Box.types";
 
-const {
-  as: Tag = "div",
-  class: classList,
-  ...props
-}: BoxProps = Astro.props;
+const { as: Tag = "div", class: classList, ...props }: BoxProps = Astro.props;
 ---
 
 <Tag class:list={[classList]} {...props}>

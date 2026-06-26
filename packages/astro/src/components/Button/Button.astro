@@ -1,5 +1,11 @@
 ---
-import { button, loadingContent, spinner, spinnerWrapper, textWrapper } from "./button.css";
+import {
+  button,
+  loadingContent,
+  spinner,
+  spinnerWrapper,
+  textWrapper,
+} from "./button.css";
 import type { ButtonProps } from "./Button.types";
 import { palettes } from "../../theme/palette/palette.css";
 
@@ -20,8 +26,18 @@ const {
   ...props
 }: ButtonProps = Astro.props;
 
-const isJSXVNode = (value: unknown): value is { type: astroHTML.JSX.Element; props?: Record<string, unknown> } => {
-  return typeof value === "object" && value !== null && "type" in value && "props" in value;
+const isJSXVNode = (
+  value: unknown,
+): value is {
+  type: astroHTML.JSX.Element;
+  props?: Record<string, unknown>;
+} => {
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    "type" in value &&
+    "props" in value
+  );
 };
 
 const spinnerVNode = isJSXVNode(loadingSpinner) ? loadingSpinner : null;
@@ -30,33 +46,53 @@ const spinnerProps = spinnerVNode?.props ?? {};
 const { children: spinnerChildren, ...spinnerAttrs } = spinnerProps;
 ---
 
-<Tag class:list={[
-  button({ shape, fill, size, block }),
-  palette && palettes[palette],
-  classList,
-]} {type} data-loading={loading} disabled={disabled || loading} {...props}>
-  {loading ?
-    (<span class={loadingContent}>
-      {loadingText ?
-        <>
-          {spinnerPlacement === "start" && (SpinnerTag ?
-            <SpinnerTag {...spinnerAttrs}>{spinnerChildren}</SpinnerTag> :
-            <span class={spinner} />)}
-          {loadingText}
-          {spinnerPlacement === "end" && (SpinnerTag ?
-            <SpinnerTag {...spinnerAttrs}>{spinnerChildren}</SpinnerTag> :
-            <span class={spinner} />)}
-        </> :
-        <>
-          <div class={spinnerWrapper}>
-            {SpinnerTag ?
-              <SpinnerTag {...spinnerAttrs}>{spinnerChildren}</SpinnerTag> :
-              <span class={spinner} />}
-          </div>
-          <span class={textWrapper}>
-            <slot />
-          </span>
-        </>}
-    </span>) :
-    <slot />}
+<Tag
+  class:list={[
+    button({ shape, fill, size, block }),
+    palette && palettes[palette],
+    classList,
+  ]}
+  {type}
+  data-loading={loading}
+  disabled={disabled || loading}
+  {...props}
+>
+  {
+    loading ? (
+      <span class={loadingContent}>
+        {loadingText ? (
+          <>
+            {spinnerPlacement === "start" &&
+              (SpinnerTag ? (
+                <SpinnerTag {...spinnerAttrs}>{spinnerChildren}</SpinnerTag>
+              ) : (
+                <span class={spinner} />
+              ))}
+            {loadingText}
+            {spinnerPlacement === "end" &&
+              (SpinnerTag ? (
+                <SpinnerTag {...spinnerAttrs}>{spinnerChildren}</SpinnerTag>
+              ) : (
+                <span class={spinner} />
+              ))}
+          </>
+        ) : (
+          <>
+            <div class={spinnerWrapper}>
+              {SpinnerTag ? (
+                <SpinnerTag {...spinnerAttrs}>{spinnerChildren}</SpinnerTag>
+              ) : (
+                <span class={spinner} />
+              )}
+            </div>
+            <span class={textWrapper}>
+              <slot />
+            </span>
+          </>
+        )}
+      </span>
+    ) : (
+      <slot />
+    )
+  }
 </Tag>

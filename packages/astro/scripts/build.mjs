@@ -65,8 +65,8 @@ function rewriteCssImports(source, fromFile, cssTsRelSet) {
   const replaceFn = (_m, p1, spec, p3) => `${p1}${rewrite(spec)}${p3}`;
 
   return source
-  .replace(FROM_REGEX, replaceFn)
-  .replace(IMPORT_REGEX, replaceFn);
+    .replace(FROM_REGEX, replaceFn)
+    .replace(IMPORT_REGEX, replaceFn);
 }
 
 function external(id) {

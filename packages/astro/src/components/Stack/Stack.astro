@@ -3,10 +3,7 @@ import Box from "../Box/Box.astro";
 import { stack } from "./stack.css";
 import type { StackProps } from "./Stack.types";
 
-const {
-  class: classList,
-  ...props
-}: StackProps = Astro.props;
+const { class: classList, ...props }: StackProps = Astro.props;
 ---
 
 <Box class:list={[stack, classList]} {...props}>
