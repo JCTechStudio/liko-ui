@@ -33,7 +33,8 @@
     "directory": "dist"
   },
   "scripts": {
-    "build": "node scripts/build.mjs"
+    "build": "node scripts/build.mjs",
+    "clean": "rm -rf dist"
   },
   "devDependencies": {
     "@vanilla-extract/css": "1.18.0",
