@@ -1,19 +1,45 @@
-import { style } from "@vanilla-extract/css";
+import { style, styleVariants } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 
-export const stack = style({
+const base = style({
   "@layer": {
     components: {
       display: "flex",
-      flexDirection: "column",
       gap: "8px",
     },
+  },
+});
+
+const direction = styleVariants({
+  row: {
+    "@layer": {
+      components: {
+        flexDirection: "row",
+      },
+    }
+  },
+  column: {
+    "@layer": {
+      components: {
+        flexDirection: "column",
+      },
+    }
+  }
+});
+
+export const stack = recipe({
+  base,
+  variants: {
+    direction,
+  },
+  defaultVariants: {
+    direction: "column",
   },
 });
 
 export const hstack = style({
   "@layer": {
     components: {
-      flexDirection: "row",
       alignItems: "center",
     },
   },
@@ -22,7 +48,6 @@ export const hstack = style({
 export const vstack = style({
   "@layer": {
     components: {
-      flexDirection: "column",
       alignItems: "center",
     },
   },
