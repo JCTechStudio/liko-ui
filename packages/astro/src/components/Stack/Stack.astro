@@ -3,9 +3,14 @@ import Box from "../Box/Box.astro";
 import { stack } from "./stack.css";
 import type { StackProps } from "./Stack.types";
 
-const { class: classList, direction, ...props }: StackProps = Astro.props;
+const {
+  class: classList,
+  direction,
+  reverse,
+  ...props
+}: StackProps = Astro.props;
 ---
 
-<Box class:list={[stack({ direction }), classList]} {...props}>
+<Box class:list={[stack({ direction, reverse }), classList]} {...props}>
   <slot />
 </Box>

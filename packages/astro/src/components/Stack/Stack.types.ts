@@ -7,4 +7,5 @@ type StackBaseProps = BaseProps & HTMLAttributes<"div">
 
 export type StackProps = StackBaseProps & {
   direction?: Direction;
+  reverse?: boolean;
 }

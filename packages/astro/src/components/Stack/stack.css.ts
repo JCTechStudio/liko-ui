@@ -24,16 +24,51 @@ const direction = styleVariants({
         flexDirection: "column",
       },
     }
-  }
+  },
+});
+
+const reverse = styleVariants({
+  true: {},
+  false: {},
 });
 
 export const stack = recipe({
   base,
   variants: {
     direction,
+    reverse,
   },
+  compoundVariants: [
+    {
+      variants: {
+        direction: "row",
+        reverse: true,
+      },
+      style: {
+        "@layer": {
+          components: {
+            flexDirection: "row-reverse",
+          },
+        },
+      },
+    },
+    {
+      variants: {
+        direction: "column",
+        reverse: true,
+      },
+      style: {
+        "@layer": {
+          components: {
+            flexDirection: "column-reverse",
+          },
+        },
+      },
+    },
+  ],
   defaultVariants: {
     direction: "column",
+    reverse: false,
   },
 });
 
