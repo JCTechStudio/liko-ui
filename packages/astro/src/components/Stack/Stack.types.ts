@@ -9,3 +9,5 @@ export type StackProps = StackBaseProps & {
   direction?: Direction;
   reverse?: boolean;
 }
+
+export type StackSeparatorProps = HTMLAttributes<"div">;

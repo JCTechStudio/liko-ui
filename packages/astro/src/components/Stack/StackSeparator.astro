@@ -1,0 +1,9 @@
+---
+import Box from "../Box/Box.astro";
+import { stackSeparator } from "./stack.css";
+import type { StackSeparatorProps } from "./Stack.types";
+
+const { class: classList, ...props }: StackSeparatorProps = Astro.props;
+---
+
+<Box class:list={[stackSeparator, classList]} {...props} />

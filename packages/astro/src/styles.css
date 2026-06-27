@@ -1,7 +1,17 @@
-@layer reset;
+@layer base;
 
-@layer reset {
+@layer base {
   a {
     text-decoration: none;
+  }
+
+  *,
+  *::before,
+  *::after,
+  *::backdrop {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: var(--border-base);
   }
 }

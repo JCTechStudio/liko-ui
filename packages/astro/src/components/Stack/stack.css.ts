@@ -87,3 +87,33 @@ export const vstack = style({
     },
   },
 });
+
+export const stackSeparator = style({
+  "@layer": {
+    components: {
+      alignSelf: "stretch",
+      borderWidth: 0,
+      borderColor: "inherit",
+      width: "auto",
+      height: "auto",
+      selectors: {
+        [`${direction.row} > &`]: {
+          borderInlineStartWidth: "1px",
+          borderTopWidth: 0,
+        },
+        [`${direction.row}${reverse.true} > &`]: {
+          borderInlineStartWidth: "1px",
+          borderTopWidth: 0,
+        },
+        [`${direction.column} > &`]: {
+          borderInlineStartWidth: 0,
+          borderTopWidth: "1px",
+        },
+        [`${direction.column}${reverse.true} > &`]: {
+          borderInlineStartWidth: 0,
+          borderTopWidth: "1px",
+        },
+      },
+    },
+  },
+});
