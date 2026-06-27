@@ -33,7 +33,7 @@
     "directory": "dist"
   },
   "scripts": {
-    "build": "node scripts/build.mjs",
+    "build": "pnpm clean && node scripts/build.mjs",
     "clean": "rm -rf dist"
   },
   "devDependencies": {
