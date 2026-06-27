@@ -1,0 +1,122 @@
+---
+title: Stack
+description: Arranges its children in a vertical or horizontal stack with consistent spacing.
+sidebar:
+  badge:
+    text: New!
+    variant: success
+---
+
+import { TabItem, Tabs } from "@astrojs/starlight/components";
+import { Box, Stack, HStack, VStack } from "@liko-ui/astro";
+import CodePreview from "../../../../components/CodePreview.astro";
+
+## Uso básico
+
+<Tabs>
+  <TabItem label="Preview">
+    <CodePreview>
+      <Stack class="w-full">
+        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      </Stack>
+    </CodePreview>
+  </TabItem>
+  <TabItem label="Code">
+    ```astro
+    ---
+    import {Stack} from "@liko-ui/astro";
+    ---
+
+    <Stack class="w-full">
+      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+    </Stack>
+    ```
+  </TabItem>
+</Tabs>
+
+## Ejemplos
+
+### Horizontal
+
+<Tabs>
+  <TabItem label="Preview">
+    <CodePreview>
+      <Stack direction="row" class="w-full h-20">
+        <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      </Stack>
+    </CodePreview>
+  </TabItem>
+  <TabItem label="Code">
+    ```astro
+    ---
+    import {Stack} from "@liko-ui/astro";
+    ---
+
+    <Stack direction="row" class="w-full h-20">
+      <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+    </Stack>
+    ```
+  </TabItem>
+</Tabs>
+
+### HStack
+
+<Tabs>
+  <TabItem label="Preview">
+    <CodePreview>
+      <HStack class="w-full h-20">
+        <Box class="w-full h-10 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <Box class="w-full h-5 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      </HStack>
+    </CodePreview>
+  </TabItem>
+  <TabItem label="Code">
+    ```astro
+    ---
+    import {HStack} from "@liko-ui/astro";
+    ---
+
+    <HStack class="w-full h-20">
+      <Box class="w-full h-10 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-5 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+    </HStack>
+    ```
+  </TabItem>
+</Tabs>
+
+### Vstack
+
+<Tabs>
+  <TabItem label="Preview">
+    <CodePreview>
+      <VStack class="w-full">
+        <Box class="w-1/2 h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <Box class="w-1/4 h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      </VStack>
+    </CodePreview>
+  </TabItem>
+  <TabItem label="Code">
+    ```astro
+    ---
+    import {VStack} from "@liko-ui/astro";
+    ---
+
+    <VStack class="w-full">
+      <Box class="w-1/2 h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-1/4 h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+    </VStack>
+    ```
+  </TabItem>
+</Tabs>
