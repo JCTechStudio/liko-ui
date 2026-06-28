@@ -1,1 +1,3 @@
 export { default as CodePreview } from './CodePreview.astro';
+export { default as DemoBox } from './DemoBox.astro';
+

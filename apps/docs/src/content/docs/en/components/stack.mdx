@@ -9,7 +9,7 @@ sidebar:
 
 import { TabItem, Tabs } from "@astrojs/starlight/components";
 import { Box, HStack, Stack, StackSeparator, VStack } from "@liko-ui/astro";
-import { CodePreview } from "../../../../components/components";
+import { CodePreview, DemoBox } from "../../../../components/components";
 
 Stack provides a layout primitive for arranging related elements in a single direction. Use it when children should share the same flow and spacing without manually managing flex direction classes on each layout.
 
@@ -21,9 +21,9 @@ By default, `Stack` arranges its children vertically. Apply sizing and spacing c
   <TabItem label="Preview">
     <CodePreview>
       <Stack class="w-full">
-        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <DemoBox class="w-full h-20" />
+        <DemoBox class="w-full h-20" />
+        <DemoBox class="w-full h-20" />
       </Stack>
     </CodePreview>
   </TabItem>
@@ -34,9 +34,9 @@ By default, `Stack` arranges its children vertically. Apply sizing and spacing c
     ---
 
     <Stack class="w-full">
-      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-20" />
+      <Box class="w-full h-20" />
+      <Box class="w-full h-20" />
     </Stack>
     ```
   </TabItem>
@@ -52,9 +52,9 @@ Use the `horizontal` prop when children should sit side by side instead of being
   <TabItem label="Preview">
     <CodePreview>
       <Stack horizontal class="w-full h-20">
-        <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-        <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-        <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <DemoBox class="w-full h-full" />
+        <DemoBox class="w-full h-full" />
+        <DemoBox class="w-full h-full" />
       </Stack>
     </CodePreview>
   </TabItem>
@@ -65,9 +65,9 @@ Use the `horizontal` prop when children should sit side by side instead of being
     ---
 
     <Stack horizontal class="w-full h-20">
-      <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-      <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-      <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-full" />
+      <Box class="w-full h-full" />
+      <Box class="w-full h-full" />
     </Stack>
     ```
   </TabItem>
@@ -81,9 +81,9 @@ Use the `horizontal` prop when children should sit side by side instead of being
   <TabItem label="Preview">
     <CodePreview>
       <HStack class="w-full h-20">
-        <Box class="w-full h-10 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-        <Box class="w-full h-5 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <DemoBox class="w-full h-10" />
+        <DemoBox class="w-full h-5" />
+        <DemoBox class="w-full h-20" />
       </HStack>
     </CodePreview>
   </TabItem>
@@ -94,9 +94,9 @@ Use the `horizontal` prop when children should sit side by side instead of being
     ---
 
     <HStack class="w-full h-20">
-      <Box class="w-full h-10 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-      <Box class="w-full h-5 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-10" />
+      <Box class="w-full h-5" />
+      <Box class="w-full h-20" />
     </HStack>
     ```
   </TabItem>
@@ -110,9 +110,9 @@ Add `reverse` to flip the order of horizontal children while keeping the same ma
   <TabItem label="Preview">
     <CodePreview>
       <HStack reverse class="w-full h-20">
-        <Box class="w-full h-10 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-        <Box class="w-full h-5 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <DemoBox class="w-full h-10" />
+        <DemoBox class="w-full h-5" />
+        <DemoBox class="w-full h-20" />
       </HStack>
     </CodePreview>
   </TabItem>
@@ -123,9 +123,9 @@ Add `reverse` to flip the order of horizontal children while keeping the same ma
     ---
 
     <HStack reverse class="w-full h-20">
-      <Box class="w-full h-10 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-      <Box class="w-full h-5 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-10" />
+      <Box class="w-full h-5" />
+      <Box class="w-full h-20" />
     </HStack>
     ```
   </TabItem>
@@ -139,9 +139,9 @@ Add `reverse` to flip the order of horizontal children while keeping the same ma
   <TabItem label="Preview">
     <CodePreview>
       <VStack class="w-full">
-        <Box class="w-1/2 h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-        <Box class="w-1/4 h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <DemoBox class="w-1/2 h-20" />
+        <DemoBox class="w-1/4 h-20" />
+        <DemoBox class="w-full h-20" />
       </VStack>
     </CodePreview>
   </TabItem>
@@ -152,9 +152,9 @@ Add `reverse` to flip the order of horizontal children while keeping the same ma
     ---
 
     <VStack class="w-full">
-      <Box class="w-1/2 h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-      <Box class="w-1/4 h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-1/2 h-20" />
+      <Box class="w-1/4 h-20" />
+      <Box class="w-full h-20" />
     </VStack>
     ```
   </TabItem>
@@ -168,9 +168,9 @@ Add `reverse` to render vertical children from bottom to top while preserving th
   <TabItem label="Preview">
     <CodePreview>
       <VStack reverse class="w-full">
-        <Box class="w-1/2 h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-        <Box class="w-1/4 h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <DemoBox class="w-1/2 h-20" />
+        <DemoBox class="w-1/4 h-20" />
+        <DemoBox class="w-full h-20" />
       </VStack>
     </CodePreview>
   </TabItem>
@@ -181,9 +181,9 @@ Add `reverse` to render vertical children from bottom to top while preserving th
     ---
 
     <VStack reverse class="w-full">
-      <Box class="w-1/2 h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-      <Box class="w-1/4 h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
-      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-1/2 h-20" />
+      <Box class="w-1/4 h-20" />
+      <Box class="w-full h-20" />
     </VStack>
     ```
   </TabItem>
@@ -197,11 +197,11 @@ Place `StackSeparator` between children to divide stacked content with a separat
   <TabItem label="Preview">
     <CodePreview>
       <Stack class="w-full">
-        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <DemoBox class="w-full h-20" />
         <StackSeparator />
-        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <DemoBox class="w-full h-20" />
         <StackSeparator />
-        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <DemoBox class="w-full h-20" />
       </Stack>
     </CodePreview>
   </TabItem>
@@ -212,11 +212,11 @@ Place `StackSeparator` between children to divide stacked content with a separat
     ---
 
     <Stack class="w-full">
-      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-20" />
       <StackSeparator />
-      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-20" />
       <StackSeparator />
-      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-20" />
     </Stack>
     ```
   </TabItem>
@@ -230,11 +230,11 @@ In a horizontal stack, `StackSeparator` switches to a vertical divider so it sep
   <TabItem label="Preview">
     <CodePreview>
       <Stack horizontal class="w-full">
-        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <DemoBox class="w-full h-20" />
         <StackSeparator />
-        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <DemoBox class="w-full h-20" />
         <StackSeparator />
-        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <DemoBox class="w-full h-20" />
       </Stack>
     </CodePreview>
   </TabItem>
@@ -245,11 +245,11 @@ In a horizontal stack, `StackSeparator` switches to a vertical divider so it sep
     ---
 
     <Stack horizontal class="w-full">
-      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-20" />
       <StackSeparator />
-      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-20" />
       <StackSeparator />
-      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <Box class="w-full h-20" />
     </Stack>
     ```
   </TabItem>

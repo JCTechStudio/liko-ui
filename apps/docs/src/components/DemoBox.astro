@@ -1,0 +1,10 @@
+---
+import { Box } from "@liko-ui/astro";
+
+const { class: classList } = Astro.props;
+---
+
+<Box
+  class:list={[classList]}
+  class="bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]"
+/>
