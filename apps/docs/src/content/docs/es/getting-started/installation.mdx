@@ -6,3 +6,15 @@ integration:
   name: "@liko-ui/astro"
   githubURL: "https://github.com/JCTechStudio/kori"
 ---
+
+Si tienes un archivo CSS global, actualízalo para incluir el orden correcto de las capas. Por ejemplo, supongamos que tienes el siguiente contenido:
+
+```css title="global.css"
+@layer base, components, utilities;
+```
+
+Entonces deberías agregar las capas `reset` y `theme` de la siguiente manera:
+
+```css title="global.css" ins=/reset|theme/
+@layer reset, base, theme, components, utilities;
+```

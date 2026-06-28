@@ -6,3 +6,15 @@ integration:
   name: "@liko-ui/astro"
   githubURL: "https://github.com/JCTechStudio/kori"
 ---
+
+If you have a global CSS file, update it to include the correct layer order. For example, let's say you have the following content:
+
+```css title="global.css"
+@layer base, components, utilities;
+```
+
+Then you should add the `reset` and `theme` layers like this:
+
+```css title="global.css" ins=/reset|theme/
+@layer reset, base, theme, components, utilities;
+```
