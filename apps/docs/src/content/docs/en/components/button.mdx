@@ -9,7 +9,7 @@ sidebar:
 
 import { TabItem, Tabs } from "@astrojs/starlight/components";
 import { Button, HStack, Stack } from "@liko-ui/astro";
-import { CodePreview } from "../../../../components/components";
+import { CodePreview, DemoSpinner } from "../../../../components/components";
 import { paletteColors } from "../../../../utils/colors.utils";
 
 ## Basic usage
@@ -250,41 +250,25 @@ import { paletteColors } from "../../../../utils/colors.utils";
       <HStack class="gap-4">
         <Button
           loading
-          loadingSpinner={
-            <span className='
-                size-4 border border-dashed border-black
-                border-t-transparent rounded-full animate-spin' />
-          }
+          loadingSpinner={<DemoSpinner />}
         ></Button>
         <Button
           loading
-          loadingSpinner={
-            <span className='
-                size-4 border border-dashed border-black
-                border-t-transparent rounded-full animate-spin' />
-          }
+          loadingSpinner={<DemoSpinner />}
         >
           Loading button with hidden long text
         </Button>
         <Button
           loading
           loadingText="Loading..."
-          loadingSpinner={
-            <span className='
-                size-4 border border-dashed border-black
-                border-t-transparent rounded-full animate-spin' />
-          }
+          loadingSpinner={<DemoSpinner />}
         >
           Loading button with hidden long text
         </Button>
         <Button
           loading
           loadingText="Loading..."
-          loadingSpinner={
-            <span className='
-                size-4 border border-dashed border-black
-                border-t-transparent rounded-full animate-spin' />
-          }
+          loadingSpinner={<DemoSpinner />}
           spinnerPlacement="end"
         >
           Loading button with hidden long text
@@ -293,7 +277,7 @@ import { paletteColors } from "../../../../utils/colors.utils";
     </CodePreview>
   </TabItem>
   <TabItem label="Code">
-    ```astro ins=/loading(?:Text="Loading..."|Spinner)?|spinnerPlacement="end"/
+    ```astro ins=/loading(?:Text="Loading..."|Spinner={<DemoCustomSpinner />})?|spinnerPlacement="end"/
     ---
     import {Button, HStack} from '@liko-ui/astro';
     ---
@@ -301,20 +285,12 @@ import { paletteColors } from "../../../../utils/colors.utils";
     <HStack class="gap-4">
       <Button
         loading
-        loadingSpinner={
-          <span className='
-                size-4 border border-dashed border-black
-                border-t-transparent rounded-full animate-spin' />
-        }
+        loadingSpinner={<DemoSpinner />}
       ></Button>
 
       <Button
         loading
-        loadingSpinner={
-          <span className='
-                size-4 border border-dashed border-black
-                border-t-transparent rounded-full animate-spin' />
-        }
+        loadingSpinner={<DemoSpinner />}
       >
         Loading button with hidden long text
       </Button>
@@ -322,11 +298,7 @@ import { paletteColors } from "../../../../utils/colors.utils";
       <Button
         loading
         loadingText="Loading..."
-        loadingSpinner={
-          <span className='
-                size-4 border border-dashed border-black
-                border-t-transparent rounded-full animate-spin' />
-        }
+        loadingSpinner={<DemoSpinner />}
       >
         Loading button with hidden long text
       </Button>
@@ -334,11 +306,7 @@ import { paletteColors } from "../../../../utils/colors.utils";
       <Button
         loading
         loadingText="Loading..."
-        loadingSpinner={
-          <span className='
-                size-4 border border-dashed border-black
-                border-t-transparent rounded-full animate-spin' />
-        }
+        loadingSpinner={<DemoSpinner />}
         spinnerPlacement="end"
       >
         Loading button with hidden long text
