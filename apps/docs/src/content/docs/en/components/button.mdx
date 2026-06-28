@@ -12,7 +12,11 @@ import { Button, HStack, Stack } from "@liko-ui/astro";
 import { CodePreview, DemoSpinner } from "../../../../components/components";
 import { paletteColors } from "../../../../utils/colors.utils";
 
+Button provides an interactive control for actions, submissions, and navigation-like triggers. It includes visual variants, sizing, loading states, and polymorphic rendering for cases where a button needs to use another HTML element.
+
 ## Basic usage
+
+By default, `Button` renders a native `button` element with the medium size, round shape, and solid fill.
 
 <Tabs>
   <TabItem label="Preview">
@@ -35,7 +39,11 @@ import { paletteColors } from "../../../../utils/colors.utils";
 
 ## Variants
 
+Use variants to adjust the visual treatment of a button while keeping the same interaction behavior.
+
 ### Shape
+
+Use `shape` to control the button radius, from sharp corners to fully circular edges.
 
 <Tabs>
   <TabItem label="Preview">
@@ -67,6 +75,8 @@ import { paletteColors } from "../../../../utils/colors.utils";
 </Tabs>
 
 ### Fill
+
+Use `fill` with a `palette` to choose how strongly the button color appears across solid, subtle, outlined, and text-like treatments.
 
 <Tabs>
   <TabItem label="Preview">
@@ -110,6 +120,8 @@ import { paletteColors } from "../../../../utils/colors.utils";
 </Tabs>
 
 ### Size
+
+Use `size` to scale the button padding, height, and text treatment for different interface densities.
 
 <Tabs>
   <TabItem label="Preview">
@@ -156,6 +168,8 @@ import { paletteColors } from "../../../../utils/colors.utils";
 
 ### Block
 
+Use `block` when the button should span the full available width of its container.
+
 <Tabs>
   <TabItem label="Preview">
     <CodePreview>
@@ -177,7 +191,11 @@ import { paletteColors } from "../../../../utils/colors.utils";
 
 ## States
 
+Button states communicate availability and progress while preserving consistent sizing and layout.
+
 ### Disabled
+
+Use `disabled` to prevent interaction when an action is unavailable.
 
 <Tabs>
   <TabItem label="Preview">
@@ -199,6 +217,8 @@ import { paletteColors } from "../../../../utils/colors.utils";
 </Tabs>
 
 ### Loading
+
+Use `loading` to disable the button and show progress while an action is running. Add `loadingText` or change `spinnerPlacement` when the loading label should differ from the default content.
 
 <Tabs>
   <TabItem label="Preview">
@@ -242,7 +262,9 @@ import { paletteColors } from "../../../../utils/colors.utils";
   </TabItem>
 </Tabs>
 
-### Custom spinner
+#### Custom spinner
+
+Use `loadingSpinner` to replace the default spinner with a custom node that matches the surrounding UI.
 
 <Tabs>
   <TabItem label="Preview">
@@ -318,6 +340,8 @@ import { paletteColors } from "../../../../utils/colors.utils";
 
 ## Polymorphic
 
+Use the `as` prop when the button should render as another element, such as an anchor for link-style navigation.
+
 <Tabs>
   <TabItem label="Preview">
     <CodePreview>
@@ -338,6 +362,8 @@ import { paletteColors } from "../../../../utils/colors.utils";
 </Tabs>
 
 ## Props
+
+Use these props to control the rendered element, visual variants, layout behavior, and loading state.
 
 | Prop               | Type                                                                | Default     | Description                                                  |
 |--------------------|---------------------------------------------------------------------|-------------|--------------------------------------------------------------|
