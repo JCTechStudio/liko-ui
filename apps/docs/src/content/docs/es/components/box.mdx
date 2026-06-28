@@ -13,12 +13,16 @@ import Image from "astro/components/Image.astro";
 import CodePreview from "../../../../components/CodePreview.astro";
 import { compositionData } from "../../../../utils/composition.utils.ts";
 
+Box es el primitivo de layout más básico. Renderiza un elemento simple con las clases y atributos que le pases, por lo que resulta útil como wrapper ligero cuando necesitas estructura sin estilos incorporados.
+
 ## Uso básico
+
+Por defecto, `Box` renderiza un `div`. Usa clases de utilidad para controlar el espaciado, el tamaño, el color y el layout directamente desde el componente.
 
 <Tabs>
   <TabItem label="Preview">
     <CodePreview>
-      <Box class="p-4 w-full bg-[tomato] text-white">
+      <Box class="p-4 w-full bg-(--palette-solid) text-(--palette-contrast)">
         This is the Box
       </Box>
     </CodePreview>
@@ -29,7 +33,7 @@ import { compositionData } from "../../../../utils/composition.utils.ts";
     import {Box} from "@liko-ui/astro";
     ---
 
-    <Box class="p-4 w-full bg-[tomato] text-white">
+    <Box class="p-4 w-full bg-(--palette-solid) text-(--palette-contrast)">
       This is the Box
     </Box>
     ```
@@ -39,6 +43,8 @@ import { compositionData } from "../../../../utils/composition.utils.ts";
 ## Ejemplos
 
 ### Composición
+
+Usa `Box` para componer bloques de UI más grandes a partir de piezas de layout pequeñas. Puede envolver contenido multimedia, texto y contenedores anidados sin añadir comportamiento propio.
 
 <Tabs>
   <TabItem label="Preview">
@@ -100,6 +106,8 @@ import { compositionData } from "../../../../utils/composition.utils.ts";
 </Tabs>
 
 ## Polimorfismo
+
+Usa la prop `as` para cambiar el elemento HTML renderizado manteniendo los mismos estilos y atributos de `Box`.
 
 <Tabs>
   <TabItem label="Preview">
