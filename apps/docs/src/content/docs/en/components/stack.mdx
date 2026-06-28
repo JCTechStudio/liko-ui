@@ -11,7 +11,11 @@ import { TabItem, Tabs } from "@astrojs/starlight/components";
 import { Box, HStack, Stack, StackSeparator, VStack } from "@liko-ui/astro";
 import { CodePreview } from "../../../../components/components";
 
+Stack provides a layout primitive for arranging related elements in a single direction. Use it when children should share the same flow and spacing without manually managing flex direction classes on each layout.
+
 ## Basic usage
+
+By default, `Stack` arranges its children vertically. Apply sizing and spacing classes directly to the stack and its children to control the final layout.
 
 <Tabs>
   <TabItem label="Preview">
@@ -42,10 +46,12 @@ import { CodePreview } from "../../../../components/components";
 
 ### Horizontal
 
+Use the `horizontal` prop when children should sit side by side instead of being stacked from top to bottom.
+
 <Tabs>
   <TabItem label="Preview">
     <CodePreview>
-      <Stack direction="row" class="w-full h-20">
+      <Stack horizontal class="w-full h-20">
         <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
         <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
         <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
@@ -53,12 +59,12 @@ import { CodePreview } from "../../../../components/components";
     </CodePreview>
   </TabItem>
   <TabItem label="Code">
-    ```astro ins=/direction="row"/
+    ```astro ins=/horizontal/
     ---
     import {Stack} from "@liko-ui/astro";
     ---
 
-    <Stack direction="row" class="w-full h-20">
+    <Stack horizontal class="w-full h-20">
       <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
       <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
       <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
@@ -68,6 +74,8 @@ import { CodePreview } from "../../../../components/components";
 </Tabs>
 
 ### HStack
+
+`HStack` is a shorthand for a horizontal stack. It flows along the inline axis and vertically center-aligns its children.
 
 <Tabs>
   <TabItem label="Preview">
@@ -96,6 +104,8 @@ import { CodePreview } from "../../../../components/components";
 
 #### Reverse
 
+Add `reverse` to flip the order of horizontal children while keeping the same markup order.
+
 <Tabs>
   <TabItem label="Preview">
     <CodePreview>
@@ -121,7 +131,9 @@ import { CodePreview } from "../../../../components/components";
   </TabItem>
 </Tabs>
 
-### Vstack
+### VStack
+
+`VStack` is a shorthand for the default vertical stack. It flows from top to bottom and horizontally center-aligns its children.
 
 <Tabs>
   <TabItem label="Preview">
@@ -150,6 +162,8 @@ import { CodePreview } from "../../../../components/components";
 
 #### Reverse
 
+Add `reverse` to render vertical children from bottom to top while preserving the source order.
+
 <Tabs>
   <TabItem label="Preview">
     <CodePreview>
@@ -176,6 +190,8 @@ import { CodePreview } from "../../../../components/components";
 </Tabs>
 
 ### Separator
+
+Place `StackSeparator` between children to divide stacked content with a separator that follows the stack direction.
 
 <Tabs>
   <TabItem label="Preview">
@@ -206,9 +222,44 @@ import { CodePreview } from "../../../../components/components";
   </TabItem>
 </Tabs>
 
+#### Horizontal
+
+In a horizontal stack, `StackSeparator` switches to a vertical divider so it separates adjacent columns.
+
+<Tabs>
+  <TabItem label="Preview">
+    <CodePreview>
+      <Stack horizontal class="w-full">
+        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <StackSeparator />
+        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <StackSeparator />
+        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      </Stack>
+    </CodePreview>
+  </TabItem>
+  <TabItem label="Code">
+    ```astro ins=/horizontal|<StackSeparator />/
+    ---
+    import {Stack, StackSeparator} from "@liko-ui/astro";
+    ---
+
+    <Stack horizontal class="w-full">
+      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <StackSeparator />
+      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <StackSeparator />
+      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+    </Stack>
+    ```
+  </TabItem>
+</Tabs>
+
 ## Props
 
-| Prop        | Type                | Default    | Description                                |
-|-------------|---------------------|------------|--------------------------------------------|
-| `direction` | `"row" \| "column"` | `"column"` | Direction of the stack items.              |
-| `reverse`   | `boolean`           | `false`    | Reverses the direction of the stack items. |
+Use these props to change the stack direction or reverse the visual order of its children.
+
+| Prop         | Type      | Default | Description                                |
+|------------- |-----------|---------|--------------------------------------------|
+| `horizontal` | `boolean` | `false` | Makes the stack items horizontal.          |
+| `reverse`    | `boolean` | `false` | Reverses the direction of the stack items. |

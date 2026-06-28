@@ -11,7 +11,11 @@ import { TabItem, Tabs } from "@astrojs/starlight/components";
 import { Box, HStack, Stack, StackSeparator, VStack } from "@liko-ui/astro";
 import { CodePreview } from "../../../../components/components";
 
+Stack proporciona un primitivo de layout para organizar elementos relacionados en una sola dirección. Úsalo cuando los hijos deban compartir el mismo flujo y espaciado sin gestionar manualmente las clases de dirección flex en cada layout.
+
 ## Uso básico
+
+Por defecto, `Stack` organiza sus hijos en vertical. Aplica clases de tamaño y espaciado directamente al stack y a sus hijos para controlar el layout final.
 
 <Tabs>
   <TabItem label="Preview">
@@ -42,10 +46,12 @@ import { CodePreview } from "../../../../components/components";
 
 ### Horizontal
 
+Usa la prop `horizontal` cuando los hijos deban colocarse uno al lado del otro en lugar de apilarse de arriba abajo.
+
 <Tabs>
   <TabItem label="Preview">
     <CodePreview>
-      <Stack direction="row" class="w-full h-20">
+      <Stack horizontal class="w-full h-20">
         <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
         <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
         <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
@@ -53,12 +59,12 @@ import { CodePreview } from "../../../../components/components";
     </CodePreview>
   </TabItem>
   <TabItem label="Code">
-    ```astro ins=/direction="row"/
+    ```astro ins=/horizontal/
     ---
     import {Stack} from "@liko-ui/astro";
     ---
 
-    <Stack direction="row" class="w-full h-20">
+    <Stack horizontal class="w-full h-20">
       <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
       <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
       <Box class="w-full h-full bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
@@ -68,6 +74,8 @@ import { CodePreview } from "../../../../components/components";
 </Tabs>
 
 ### HStack
+
+`HStack` es una abreviatura para un stack horizontal. Fluye sobre el eje inline y centra verticalmente sus hijos.
 
 <Tabs>
   <TabItem label="Preview">
@@ -96,6 +104,8 @@ import { CodePreview } from "../../../../components/components";
 
 #### Reverse
 
+Añade `reverse` para invertir el orden visual de los hijos horizontales manteniendo el mismo orden en el marcado.
+
 <Tabs>
   <TabItem label="Preview">
     <CodePreview>
@@ -121,7 +131,9 @@ import { CodePreview } from "../../../../components/components";
   </TabItem>
 </Tabs>
 
-### Vstack
+### VStack
+
+`VStack` es una abreviatura para el stack vertical por defecto. Fluye de arriba abajo y centra horizontalmente sus hijos.
 
 <Tabs>
   <TabItem label="Preview">
@@ -150,6 +162,8 @@ import { CodePreview } from "../../../../components/components";
 
 #### Reverse
 
+Añade `reverse` para renderizar los hijos verticales de abajo arriba mientras se conserva el orden de origen.
+
 <Tabs>
   <TabItem label="Preview">
     <CodePreview>
@@ -176,6 +190,8 @@ import { CodePreview } from "../../../../components/components";
 </Tabs>
 
 ### Separador
+
+Coloca `StackSeparator` entre los hijos para dividir el contenido apilado con un separador que sigue la dirección del stack.
 
 <Tabs>
   <TabItem label="Preview">
@@ -206,9 +222,44 @@ import { CodePreview } from "../../../../components/components";
   </TabItem>
 </Tabs>
 
+#### Horizontal
+
+En un stack horizontal, `StackSeparator` cambia a un divisor vertical para separar las columnas adyacentes.
+
+<Tabs>
+  <TabItem label="Preview">
+    <CodePreview>
+      <Stack horizontal class="w-full">
+        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <StackSeparator />
+        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+        <StackSeparator />
+        <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      </Stack>
+    </CodePreview>
+  </TabItem>
+  <TabItem label="Code">
+    ```astro ins=/horizontal|<StackSeparator />/
+    ---
+    import {Stack, StackSeparator} from "@liko-ui/astro";
+    ---
+
+    <Stack horizontal class="w-full">
+      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <StackSeparator />
+      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+      <StackSeparator />
+      <Box class="w-full h-20 bg-[repeating-linear-gradient(135deg,rgba(107,114,128,0.3)_0_1px,rgba(107,114,128,0.1)_1px_4px)]" />
+    </Stack>
+    ```
+  </TabItem>
+</Tabs>
+
 ## Props
 
-| Prop        | Type                | Default    | Description                                        |
-|-------------|---------------------|------------|----------------------------------------------------|
-| `direction` | `"row" \| "column"` | `"column"` | Dirección de los elementos de la pila.             |
-| `reverse`   | `boolean`           | `false`    | Invierte la dirección de los elementos de la pila. |
+Usa estas props para cambiar la dirección del stack o invertir el orden visual de sus hijos.
+
+| Prop         | Type      | Default | Description                                        |
+|--------------|-----------|---------|----------------------------------------------------|
+| `horizontal` | `boolean` | `false` | Coloca los elementos de la pila en horizontal.     |
+| `reverse`    | `boolean` | `false` | Invierte la dirección de los elementos de la pila. |
