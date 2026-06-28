@@ -10,15 +10,15 @@ const base = style({
   },
 });
 
-const direction = styleVariants({
-  row: {
+const horizontal = styleVariants({
+  true: {
     "@layer": {
       components: {
         flexDirection: "row",
       },
     }
   },
-  column: {
+  false: {
     "@layer": {
       components: {
         flexDirection: "column",
@@ -35,13 +35,13 @@ const reverse = styleVariants({
 export const stack = recipe({
   base,
   variants: {
-    direction,
+    horizontal,
     reverse,
   },
   compoundVariants: [
     {
       variants: {
-        direction: "row",
+        horizontal: true,
         reverse: true,
       },
       style: {
@@ -54,7 +54,7 @@ export const stack = recipe({
     },
     {
       variants: {
-        direction: "column",
+        horizontal: false,
         reverse: true,
       },
       style: {
@@ -67,7 +67,7 @@ export const stack = recipe({
     },
   ],
   defaultVariants: {
-    direction: "column",
+    horizontal: false,
     reverse: false,
   },
 });
@@ -97,19 +97,19 @@ export const stackSeparator = style({
       width: "auto",
       height: "auto",
       selectors: {
-        [`${direction.row} > &`]: {
+        [`${horizontal.true} > &`]: {
           borderInlineStartWidth: "1px",
           borderTopWidth: 0,
         },
-        [`${direction.row}${reverse.true} > &`]: {
+        [`${horizontal.true}${reverse.true} > &`]: {
           borderInlineStartWidth: "1px",
           borderTopWidth: 0,
         },
-        [`${direction.column} > &`]: {
+        [`${horizontal.false} > &`]: {
           borderInlineStartWidth: 0,
           borderTopWidth: "1px",
         },
-        [`${direction.column}${reverse.true} > &`]: {
+        [`${horizontal.false}${reverse.true} > &`]: {
           borderInlineStartWidth: 0,
           borderTopWidth: "1px",
         },

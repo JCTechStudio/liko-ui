@@ -5,12 +5,12 @@ import type { StackProps } from "./Stack.types";
 
 const {
   class: classList,
-  direction,
+  horizontal,
   reverse,
   ...props
 }: StackProps = Astro.props;
 ---
 
-<Box class:list={[stack({ direction, reverse }), classList]} {...props}>
+<Box class:list={[stack({ horizontal, reverse }), classList]} {...props}>
   <slot />
 </Box>
